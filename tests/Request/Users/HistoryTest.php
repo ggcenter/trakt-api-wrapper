@@ -3,8 +3,8 @@
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use GuzzleHttp\Message\ResponseInterface;
-use Wubs\Trakt\Request\Parameters\Type;
-use Wubs\Trakt\Request\Users\History;
+use NNTmux\Trakt\Request\Parameters\Type;
+use NNTmux\Trakt\Request\Users\History;
 
 class HistoryTest extends PHPUnit_Framework_TestCase
 {

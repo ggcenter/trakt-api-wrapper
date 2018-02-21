@@ -1,9 +1,9 @@
 <?php
-use Wubs\Trakt\Request\Parameters\Query;
-use Wubs\Trakt\Request\Parameters\Type;
-use Wubs\Trakt\Request\Parameters\Year;
-use Wubs\Trakt\Request\RequestType;
-use Wubs\Trakt\Request\Search\ByText;
+use NNTmux\Trakt\Request\Parameters\Query;
+use NNTmux\Trakt\Request\Parameters\Type;
+use NNTmux\Trakt\Request\Parameters\Year;
+use NNTmux\Trakt\Request\RequestType;
+use NNTmux\Trakt\Request\Search\ByText;
 
 /**
  * Created by PhpStorm.

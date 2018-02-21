@@ -1,7 +1,7 @@
 <?php
-use Wubs\Trakt\Request\Comments\Get;
-use Wubs\Trakt\Request\Parameters\CommentId;
-use Wubs\Trakt\Request\RequestType;
+use NNTmux\Trakt\Request\Comments\Get;
+use NNTmux\Trakt\Request\Parameters\CommentId;
+use NNTmux\Trakt\Request\RequestType;
 
 /**
  * Created by PhpStorm.

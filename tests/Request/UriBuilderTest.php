@@ -1,11 +1,11 @@
 <?php
 use Carbon\Carbon;
-use Wubs\Trakt\Request\Calendars\My\Shows;
-use Wubs\Trakt\Request\Movies\Comments;
-use Wubs\Trakt\Request\Parameters\Days;
-use Wubs\Trakt\Request\Parameters\MediaId;
-use Wubs\Trakt\Request\Parameters\StartDate;
-use Wubs\Trakt\Request\UriBuilder;
+use NNTmux\Trakt\Request\Calendars\My\Shows;
+use NNTmux\Trakt\Request\Movies\Comments;
+use NNTmux\Trakt\Request\Parameters\Days;
+use NNTmux\Trakt\Request\Parameters\MediaId;
+use NNTmux\Trakt\Request\Parameters\StartDate;
+use NNTmux\Trakt\Request\UriBuilder;
 
 /**
  * Created by PhpStorm.

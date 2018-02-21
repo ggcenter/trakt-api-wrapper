@@ -1,13 +1,13 @@
 <?php
 use Carbon\Carbon;
 use GuzzleHttp\ClientInterface;
-use Wubs\Trakt\Request\Calendars\My\Movies;
-use Wubs\Trakt\Request\Parameters\Days;
-use Wubs\Trakt\Request\Parameters\StartDate;
-use Wubs\Trakt\Request\Parameters\Type;
-use Wubs\Trakt\Request\Parameters\Username;
-use Wubs\Trakt\Request\Users\History;
-use Wubs\Trakt\TraktHttpClient;
+use NNTmux\Trakt\Request\Calendars\My\Movies;
+use NNTmux\Trakt\Request\Parameters\Days;
+use NNTmux\Trakt\Request\Parameters\StartDate;
+use NNTmux\Trakt\Request\Parameters\Type;
+use NNTmux\Trakt\Request\Parameters\Username;
+use NNTmux\Trakt\Request\Users\History;
+use NNTmux\Trakt\TraktHttpClient;
 
 /**
  * Created by PhpStorm.

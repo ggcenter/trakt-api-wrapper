@@ -3,14 +3,14 @@ use Carbon\Carbon;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use GuzzleHttp\Message\ResponseInterface;
-use Wubs\Trakt\Contracts\ResponseHandler;
-use Wubs\Trakt\Request\AbstractRequest;
-use Wubs\Trakt\Request\Calendars\My;
-use Wubs\Trakt\Request\Calendars\My\Movies;
-use Wubs\Trakt\Request\Parameters\Days;
-use Wubs\Trakt\Request\Parameters\StartDate;
-use Wubs\Trakt\Response\Handlers\AbstractResponseHandler;
-use Wubs\Trakt\TraktHttpClient;
+use NNTmux\Trakt\Contracts\ResponseHandler;
+use NNTmux\Trakt\Request\AbstractRequest;
+use NNTmux\Trakt\Request\Calendars\My;
+use NNTmux\Trakt\Request\Calendars\My\Movies;
+use NNTmux\Trakt\Request\Parameters\Days;
+use NNTmux\Trakt\Request\Parameters\StartDate;
+use NNTmux\Trakt\Response\Handlers\AbstractResponseHandler;
+use NNTmux\Trakt\TraktHttpClient;
 
 /**
  * Created by PhpStorm.

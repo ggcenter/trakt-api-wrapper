@@ -1,6 +1,6 @@
 <?php
 use GuzzleHttp\ClientInterface;
-use Wubs\Trakt\Media\Show;
+use NNTmux\Trakt\Media\Show;
 
 /**
  * Created by PhpStorm.

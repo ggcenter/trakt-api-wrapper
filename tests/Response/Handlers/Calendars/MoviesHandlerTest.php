@@ -2,9 +2,9 @@
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use GuzzleHttp\Message\ResponseInterface;
-use Wubs\Trakt\Response\Calendar\Calendar;
-use Wubs\Trakt\Response\Calendar\Day;
-use Wubs\Trakt\Response\Handlers\Calendars\MoviesHandler;
+use NNTmux\Trakt\Response\Calendar\Calendar;
+use NNTmux\Trakt\Response\Calendar\Day;
+use NNTmux\Trakt\Response\Handlers\Calendars\MoviesHandler;
 
 /**
  * Created by PhpStorm.

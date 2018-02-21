@@ -1,5 +1,5 @@
 <?php
-use Wubs\Trakt\Auth\TraktProvider;
+use NNTmux\Trakt\Auth\TraktProvider;
 
 /**
  * Created by PhpStorm.

@@ -7,7 +7,7 @@ use League\Flysystem\Filesystem;
 use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Wubs\Trakt\Console\Generators\EndpointGenerator;
+use NNTmux\Trakt\Console\Generators\EndpointGenerator;
 
 class NestedRequestsGeneratorTest extends PHPUnit_Framework_TestCase
 {
@@ -30,12 +30,12 @@ class NestedRequestsGeneratorTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         parent::__construct();
-        $this->file = __DIR__ . "/../../../src/Wubs/Trakt/Api/Users.php";
+        $this->file = __DIR__ . "/../../../src/NNTmux/Trakt/Api/Users.php";
 
 
         $this->filesystem = new Filesystem(
             new Local(
-                __DIR__ . "/../../../src/Wubs/Trakt/Api/"
+	            __DIR__ . "/../../../src/NNTmux/Trakt/Api/"
             )
         );
 
@@ -85,7 +85,7 @@ class NestedRequestsGeneratorTest extends PHPUnit_Framework_TestCase
 
         $this->assertTrue($check);
 
-        $this->assertContains("Wubs\\Trakt\\Api\\Users", static::$content);
+        $this->assertContains("NNTmux\\Trakt\\Api\\Users", static::$content);
     }
 
     /**
@@ -93,7 +93,7 @@ class NestedRequestsGeneratorTest extends PHPUnit_Framework_TestCase
      */
     public function testAddsEndpointUseStatementToSubClass()
     {
-        $this->assertContains("Wubs\\Trakt\\Api\\Users", static::$content);
+        $this->assertContains("NNTmux\\Trakt\\Api\\Users", static::$content);
     }
 
     /**

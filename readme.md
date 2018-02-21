@@ -1,4 +1,4 @@
-Notice: This package is abandoned by its maintainer. Please fork and continue from there.
+Notice: This package is a fork of now abandoned megawubs/trakt-api-wrapper
 =========
 
 Trakt-api-wrapper version 2
@@ -17,14 +17,14 @@ The goal of this wrapper is to make communicating with the Trakt api easier. It 
 ## Laravel usage
 
 To use the wrapper inside Laravel, you only have to add 
-`Wubs\Trakt\Providers\Laravel\TraktApiServiceProvider::class` to the `providers` array in your `config/app.php` file.
- When you've done this, use the `\Wubs\Trakt\Trakt` class as a type hint to inject it into routes or methods. See 
+`NNTmux\Trakt\Providers\Laravel\TraktApiServiceProvider::class` to the `providers` array in your `config/app.php` file.
+ When you've done this, use the `\NNTmux\Trakt\Trakt` class as a type hint to inject it into routes or methods. See 
  here an example:
  
  ```php
   Route::get(
      '/',
-     function (\Wubs\Trakt\Trakt $trakt) {
+     function (\NNTmux\Trakt\Trakt $trakt) {
          dump($trakt->movies->popular());
      }
  );
@@ -36,8 +36,8 @@ If you don't use Laravel, you have to do a bit more to get it working.
 
 ## Instantiating the Trakt API Wrapper
 
-The API Wrapper needs one dependency. The `Wubs\Trakt\Auth` class, that in turn depends on 
-`Wubs\Trakt\Provider\TraktProvider` The `TraktProvider` holds your client id, secret and your redirect url. To make an 
+The API Wrapper needs one dependency. The `NNTmux\Trakt\Auth` class, that in turn depends on 
+`NNTmux\Trakt\Provider\TraktProvider` The `TraktProvider` holds your client id, secret and your redirect url. To make an 
 Auth object:
  
  ```PHP

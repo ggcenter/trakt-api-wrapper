@@ -1,11 +1,11 @@
 #!/usr/bin/env php
 <?php
 use Symfony\Component\Console\Application;
-use Wubs\Trakt\Console\TraktGenerateCommand;
+use NNTmux\Trakt\Console\TraktGenerateCommand;
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$console = new Application("Trakt");
+$console = new Application('Trakt');
 
 $console->add(new TraktGenerateCommand());
 

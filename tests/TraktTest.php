@@ -1,8 +1,8 @@
 <?php
 use GuzzleHttp\Client;
-use Wubs\Trakt\Auth\Auth;
-use Wubs\Trakt\Auth\TraktProvider;
-use Wubs\Trakt\Trakt;
+use NNTmux\Trakt\Auth\Auth;
+use NNTmux\Trakt\Auth\TraktProvider;
+use NNTmux\Trakt\Trakt;
 
 /**
  * Created by PhpStorm.
@@ -19,7 +19,7 @@ class TraktTest extends PHPUnit_Framework_TestCase
 
         $trakt = new Trakt($auth, new Client());
 
-        $this->assertInstanceOf("Wubs\\Trakt\\Trakt", $trakt);
+        $this->assertInstanceOf("NNTmux\\Trakt\\Trakt", $trakt);
     }
 
     public function testInvalidAuthorization()

@@ -1,9 +1,9 @@
 <?php
 use GuzzleHttp\ClientInterface;
-use Wubs\Trakt\Media\Media;
-use Wubs\Trakt\Media\Show;
-use Wubs\Trakt\Request\Parameters\Type;
-use Wubs\Trakt\Response\Calendar\Day;
+use NNTmux\Trakt\Media\Media;
+use NNTmux\Trakt\Media\Show;
+use NNTmux\Trakt\Request\Parameters\Type;
+use NNTmux\Trakt\Response\Calendar\Day;
 
 /**
  * Created by PhpStorm.

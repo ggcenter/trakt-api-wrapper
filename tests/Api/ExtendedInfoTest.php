@@ -1,12 +1,12 @@
 <?php
 
 
-use Wubs\Trakt\Api\Calendars;
-use Wubs\Trakt\Api\Users;
-use Wubs\Trakt\Auth\Auth;
-use Wubs\Trakt\Auth\TraktProvider;
-use Wubs\Trakt\Trakt;
-use Wubs\Trakt\TraktHttpClient;
+use NNTmux\Trakt\Api\Calendars;
+use NNTmux\Trakt\Api\Users;
+use NNTmux\Trakt\Auth\Auth;
+use NNTmux\Trakt\Auth\TraktProvider;
+use NNTmux\Trakt\Trakt;
+use NNTmux\Trakt\TraktHttpClient;
 
 class ExtendedInfoTest extends PHPUnit_Framework_TestCase
 {

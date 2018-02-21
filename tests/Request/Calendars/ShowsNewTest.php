@@ -1,8 +1,8 @@
 <?php
 use Carbon\Carbon;
-use Wubs\Trakt\Request\Calendars\My\NewShows;
-use Wubs\Trakt\Request\Parameters\Days;
-use Wubs\Trakt\Request\Parameters\StartDate;
+use NNTmux\Trakt\Request\Calendars\My\NewShows;
+use NNTmux\Trakt\Request\Parameters\Days;
+use NNTmux\Trakt\Request\Parameters\StartDate;
 
 /**
  * Created by PhpStorm.

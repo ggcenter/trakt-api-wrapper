@@ -5,9 +5,9 @@ use Carbon\Carbon;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use GuzzleHttp\Message\ResponseInterface;
-use Wubs\Trakt\Api;
-use Wubs\Trakt\Auth\Auth;
-use Wubs\Trakt\Trakt;
+use NNTmux\Trakt\Api;
+use NNTmux\Trakt\Auth\Auth;
+use NNTmux\Trakt\Trakt;
 
 class CalendarsRequestTest extends PHPUnit_Framework_TestCase
 {

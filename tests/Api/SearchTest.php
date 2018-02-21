@@ -2,10 +2,10 @@
 
 
 use Illuminate\Support\Collection;
-use Wubs\Trakt\Auth\Auth;
-use Wubs\Trakt\Media\Movie;
-use Wubs\Trakt\Request\Parameters\Type;
-use Wubs\Trakt\Trakt;
+use NNTmux\Trakt\Auth\Auth;
+use NNTmux\Trakt\Media\Movie;
+use NNTmux\Trakt\Request\Parameters\Type;
+use NNTmux\Trakt\Trakt;
 
 class SearchTest extends PHPUnit_Framework_TestCase
 {

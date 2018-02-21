@@ -1,11 +1,11 @@
 <?php
 use GuzzleHttp\Client;
-use Wubs\Trakt\Auth\Auth;
-use Wubs\Trakt\Contracts\ExecutesRequest;
-use Wubs\Trakt\Auth\TraktProvider;
-use Wubs\Trakt\Request\DescribesRequest;
-use Wubs\Trakt\Trakt;
-use Wubs\Trakt\TraktHttpClient;
+use NNTmux\Trakt\Auth\Auth;
+use NNTmux\Trakt\Contracts\ExecutesRequest;
+use NNTmux\Trakt\Auth\TraktProvider;
+use NNTmux\Trakt\Request\DescribesRequest;
+use NNTmux\Trakt\Trakt;
+use NNTmux\Trakt\TraktHttpClient;
 
 /**
  * Created by PhpStorm.
@@ -36,7 +36,7 @@ class HowItShouldWorkTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Wubs\Trakt\Request\Exception\HttpCodeException\MethodNotFoundException;
+     * @expectedException NNTmux\Trakt\Request\Exception\HttpCodeException\MethodNotFoundException;
      */
     public function testPublicApi()
     {

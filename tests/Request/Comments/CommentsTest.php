@@ -2,13 +2,13 @@
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use GuzzleHttp\Message\ResponseInterface;
-use Wubs\Trakt\Request\Comments\Delete;
-use Wubs\Trakt\Request\Comments\Get;
-use Wubs\Trakt\Request\Comments\Create;
-use Wubs\Trakt\Request\Parameters\Comment;
-use Wubs\Trakt\Request\Parameters\CommentId;
-use Wubs\Trakt\Request\Parameters\Spoiler;
-use Wubs\Trakt\Request\RequestType;
+use NNTmux\Trakt\Request\Comments\Delete;
+use NNTmux\Trakt\Request\Comments\Get;
+use NNTmux\Trakt\Request\Comments\Create;
+use NNTmux\Trakt\Request\Parameters\Comment;
+use NNTmux\Trakt\Request\Parameters\CommentId;
+use NNTmux\Trakt\Request\Parameters\Spoiler;
+use NNTmux\Trakt\Request\RequestType;
 
 /**
  * Created by PhpStorm.
@@ -57,7 +57,7 @@ class CommentsTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @@expectedException Wubs\Trakt\Request\Exception\CommentTooShortException
+     * @@expectedException NNTmux\Trakt\Request\Exception\CommentTooShortException
      */
     public function testThrowsExceptionWithShoutLessThan5Words()
     {

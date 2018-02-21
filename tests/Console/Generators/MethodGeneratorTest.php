@@ -8,7 +8,7 @@ use Symfony\Component\Console\Helper\QuestionHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\OutputInterface;
-use Wubs\Trakt\Console\Generators\EndpointGenerator;
+use NNTmux\Trakt\Console\Generators\EndpointGenerator;
 
 class MethodGeneratorTest extends PHPUnit_Framework_TestCase
 {
@@ -29,11 +29,11 @@ class MethodGeneratorTest extends PHPUnit_Framework_TestCase
     protected function setUp()
     {
         parent::__construct();
-        $this->file = __DIR__ . "/../../../src/Wubs/Trakt/Api/Comments.php";
+        $this->file = __DIR__ . "/../../../src/NNTmux/Trakt/Api/Comments.php";
 
         $this->filesystem = new Filesystem(
             new Local(
-                __DIR__ . "/../../../src/Wubs/Trakt/Api/"
+	            __DIR__ . "/../../../src/NNTmux/Trakt/Api/"
             )
         );
     }

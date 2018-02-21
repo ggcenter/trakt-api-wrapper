@@ -1,9 +1,9 @@
 <?php
 
 
-use Wubs\Trakt\Auth\Auth;
-use Wubs\Trakt\Response\CheckIn;
-use Wubs\Trakt\Trakt;
+use NNTmux\Trakt\Auth\Auth;
+use NNTmux\Trakt\Response\CheckIn;
+use NNTmux\Trakt\Trakt;
 
 class CheckInRequestTest extends PHPUnit_Framework_TestCase
 {

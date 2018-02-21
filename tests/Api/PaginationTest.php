@@ -4,13 +4,13 @@
 use GuzzleHttp\Message\ResponseInterface;
 use Illuminate\Support\Collection;
 use League\OAuth2\Client\Token\AccessToken;
-use Wubs\Trakt\Api\Movies;
-use Wubs\Trakt\Api\Users;
-use Wubs\Trakt\Contracts\ResponseHandler;
-use Wubs\Trakt\Request\Movies\Collected;
-use Wubs\Trakt\Request\Users\History;
-use Wubs\Trakt\Response\Handlers\AbstractResponseHandler;
-use Wubs\Trakt\TraktHttpClient;
+use NNTmux\Trakt\Api\Movies;
+use NNTmux\Trakt\Api\Users;
+use NNTmux\Trakt\Contracts\ResponseHandler;
+use NNTmux\Trakt\Request\Movies\Collected;
+use NNTmux\Trakt\Request\Users\History;
+use NNTmux\Trakt\Response\Handlers\AbstractResponseHandler;
+use NNTmux\Trakt\TraktHttpClient;
 
 class PaginationTest extends PHPUnit_Framework_TestCase
 {

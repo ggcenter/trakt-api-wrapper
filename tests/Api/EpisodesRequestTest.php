@@ -2,8 +2,8 @@
 
 
 use Illuminate\Support\Collection;
-use Wubs\Trakt\Auth\Auth;
-use Wubs\Trakt\Trakt;
+use NNTmux\Trakt\Auth\Auth;
+use NNTmux\Trakt\Trakt;
 
 class EpisodesRequestTest extends PHPUnit_Framework_TestCase
 {

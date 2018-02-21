@@ -1,7 +1,7 @@
 <?php
-use Wubs\Trakt\Request\RequestType;
-use Wubs\Trakt\Request\Users\Settings;
-use Wubs\Trakt\Trakt;
+use NNTmux\Trakt\Request\RequestType;
+use NNTmux\Trakt\Request\Users\Settings;
+use NNTmux\Trakt\Trakt;
 
 /**
  * Created by PhpStorm.

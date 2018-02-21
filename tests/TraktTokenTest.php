@@ -1,5 +1,5 @@
 <?php
-use Wubs\Trakt\Auth\Token;
+use NNTmux\Trakt\Auth\Token;
 
 /**
  * Created by PhpStorm.
