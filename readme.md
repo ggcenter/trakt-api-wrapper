@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/NNTmux/trakt-api-wrapper.svg?branch=master)](https://travis-ci.org/NNTmux/trakt-api-wrapper)
+
 Notice: This package is a fork of now abandoned megawubs/trakt-api-wrapper
 =========
 
