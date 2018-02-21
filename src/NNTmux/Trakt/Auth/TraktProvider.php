@@ -7,7 +7,7 @@ use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 use League\OAuth2\Client\Token\AccessToken;
 use Psr\Http\Message\ResponseInterface;
 
-abstract class TraktProvider extends AbstractProvider
+class TraktProvider extends AbstractProvider
 {
 
     /**
