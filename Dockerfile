@@ -1,4 +1,4 @@
-FROM php:7.0-fpm-alpine
+FROM php:7.2-fpm-alpine
 
 COPY bin/docker-php-pecl-install /usr/local/bin/docker-php-pecl-install
 RUN chmod +x /usr/local/bin/docker-php-pecl-install
