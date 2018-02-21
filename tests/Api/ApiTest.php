@@ -10,7 +10,7 @@ use NNTmux\Trakt\Auth\Auth;
 use NNTmux\Trakt\Response\CheckIn;
 use NNTmux\Trakt\Trakt;
 
-class ApiTest extends PHPUnit_Framework_TestCase
+class ApiTest extends PHPUnit\Framework\TestCase
 {
     /**
      * @var Trakt

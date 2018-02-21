@@ -11,7 +11,7 @@ use NNTmux\Trakt\Request\Search\ByText;
  * Date: 14/03/15
  * Time: 12:11
  */
-class TextTest extends PHPUnit_Framework_TestCase
+class TextTest extends PHPUnit\Framework\TestCase
 {
     public function testSearchMovie()
     {

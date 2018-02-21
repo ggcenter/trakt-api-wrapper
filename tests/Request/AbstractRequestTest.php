@@ -18,7 +18,7 @@ use NNTmux\Trakt\TraktHttpClient;
  * Date: 23/03/15
  * Time: 18:11
  */
-class AbstractRequestTest extends PHPUnit_Framework_TestCase
+class AbstractRequestTest extends PHPUnit\Framework\TestCase
 {
 
 

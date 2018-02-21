@@ -6,7 +6,7 @@ use Psr\Http\Message\ResponseInterface;
 use NNTmux\Trakt\Request\Parameters\Type;
 use NNTmux\Trakt\Request\Users\History;
 
-class HistoryTest extends PHPUnit_Framework_TestCase
+class HistoryTest extends PHPUnit\Framework\TestCase
 {
 
     protected function tearDown()

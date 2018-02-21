@@ -9,7 +9,7 @@ use NNTmux\Trakt\Api;
 use NNTmux\Trakt\Auth\Auth;
 use NNTmux\Trakt\Trakt;
 
-class CalendarsRequestTest extends PHPUnit_Framework_TestCase
+class CalendarsRequestTest extends PHPUnit\Framework\TestCase
 {
     /**
      * @var Trakt

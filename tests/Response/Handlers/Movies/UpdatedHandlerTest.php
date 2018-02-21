@@ -12,7 +12,7 @@ use NNTmux\Trakt\Response\Updated;
  * Date: 20/03/15
  * Time: 09:57
  */
-class UpdatedHandlerTest extends PHPUnit_Framework_TestCase
+class UpdatedHandlerTest extends PHPUnit\Framework\TestCase
 {
     protected function tearDown()
     {

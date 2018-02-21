@@ -12,7 +12,7 @@ use NNTmux\Trakt\Request\Users\History;
 use NNTmux\Trakt\Response\Handlers\AbstractResponseHandler;
 use NNTmux\Trakt\TraktHttpClient;
 
-class PaginationTest extends PHPUnit_Framework_TestCase
+class PaginationTest extends PHPUnit\Framework\TestCase
 {
 
 

@@ -9,7 +9,7 @@ use NNTmux\Trakt\Request\RequestType;
  * Date: 12/03/15
  * Time: 12:54
  */
-class GetCommentTest extends PHPUnit_Framework_TestCase
+class GetCommentTest extends PHPUnit\Framework\TestCase
 {
     public function testStaticCall()
     {

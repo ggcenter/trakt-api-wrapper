@@ -7,7 +7,7 @@ use NNTmux\Trakt\Auth\Auth;
 use NNTmux\Trakt\Auth\TraktProvider;
 use NNTmux\Trakt\Trakt;
 
-class PropertiesTest extends PHPUnit_Framework_TestCase
+class PropertiesTest extends PHPUnit\Framework\TestCase
 {
 
     protected function tearDown()

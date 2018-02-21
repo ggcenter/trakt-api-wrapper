@@ -11,7 +11,7 @@ use NNTmux\Trakt\Trakt;
  * Date: 26/02/15
  * Time: 00:57
  */
-class MoviesTest extends PHPUnit_Framework_TestCase
+class MoviesTest extends PHPUnit\Framework\TestCase
 {
 
     public function testFormatsRequestUrl()

@@ -10,7 +10,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use NNTmux\Trakt\Console\Generators\EndpointGenerator;
 
-class MethodGeneratorTest extends PHPUnit_Framework_TestCase
+class MethodGeneratorTest extends PHPUnit\Framework\TestCase
 {
     /**
      * @var EndpointGenerator

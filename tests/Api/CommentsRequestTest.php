@@ -8,7 +8,7 @@ use NNTmux\Trakt\Auth\Auth;
 use NNTmux\Trakt\Response\Comment;
 use NNTmux\Trakt\Trakt;
 
-class CommentsRequestTest extends PHPUnit_Framework_TestCase
+class CommentsRequestTest extends PHPUnit\Framework\TestCase
 {
 
     protected function tearDown()

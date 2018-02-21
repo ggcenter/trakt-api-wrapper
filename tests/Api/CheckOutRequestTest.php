@@ -7,7 +7,7 @@ use Psr\Http\Message\ResponseInterface;
 use NNTmux\Trakt\Auth\Auth;
 use NNTmux\Trakt\Trakt;
 
-class CheckOutRequestTest extends PHPUnit_Framework_TestCase
+class CheckOutRequestTest extends PHPUnit\Framework\TestCase
 {
 
     protected function tearDown()

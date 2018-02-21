@@ -8,7 +8,7 @@ use NNTmux\Trakt\Auth\TraktProvider;
 use NNTmux\Trakt\Trakt;
 use NNTmux\Trakt\TraktHttpClient;
 
-class ExtendedInfoTest extends PHPUnit_Framework_TestCase
+class ExtendedInfoTest extends PHPUnit\Framework\TestCase
 {
 
     public function testCanSetExtendedLevelOnEndpoint()

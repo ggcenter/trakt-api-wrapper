@@ -9,7 +9,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class ShowsRequestTest extends PHPUnit_Framework_TestCase
+class ShowsRequestTest extends PHPUnit\Framework\TestCase
 {
     /**
      * @var Api

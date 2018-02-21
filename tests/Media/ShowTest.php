@@ -8,7 +8,7 @@ use NNTmux\Trakt\Media\Show;
  * Date: 21/03/15
  * Time: 19:36
  */
-class ShowTest extends PHPUnit_Framework_TestCase
+class ShowTest extends PHPUnit\Framework\TestCase
 {
     protected function tearDown()
     {

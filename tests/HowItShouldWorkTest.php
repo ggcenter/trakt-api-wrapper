@@ -13,7 +13,7 @@ use NNTmux\Trakt\TraktHttpClient;
  * Date: 02/04/15
  * Time: 18:45
  */
-class HowItShouldWorkTest extends PHPUnit_Framework_TestCase
+class HowItShouldWorkTest extends PHPUnit\Framework\TestCase
 {
 
     /**

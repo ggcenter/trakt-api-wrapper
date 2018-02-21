@@ -10,7 +10,7 @@ use NNTmux\Trakt\Trakt;
  * Date: 22/02/15
  * Time: 13:44
  */
-class TraktTest extends PHPUnit_Framework_TestCase
+class TraktTest extends PHPUnit\Framework\TestCase
 {
     public function testCanInitiateTrakt()
     {

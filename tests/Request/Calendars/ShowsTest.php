@@ -12,7 +12,7 @@ use NNTmux\Trakt\Trakt;
  * Date: 25/02/15
  * Time: 15:19
  */
-class ShowsTest extends PHPUnit_Framework_TestCase
+class ShowsTest extends PHPUnit\Framework\TestCase
 {
 
     public function testCanBuildRequestWithNoParameters()

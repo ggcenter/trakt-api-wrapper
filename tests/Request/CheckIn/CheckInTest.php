@@ -18,7 +18,7 @@ use NNTmux\Trakt\Response\CheckIn;
  * Date: 14/03/15
  * Time: 15:52
  */
-class CheckInTest extends PHPUnit_Framework_TestCase
+class CheckInTest extends PHPUnit\Framework\TestCase
 {
 
     protected function tearDown()

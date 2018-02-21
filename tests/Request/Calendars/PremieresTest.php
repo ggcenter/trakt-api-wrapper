@@ -11,7 +11,7 @@ use NNTmux\Trakt\Request\Parameters\StartDate;
  * Date: 12/03/15
  * Time: 12:35
  */
-class PremieresTest extends PHPUnit_Framework_TestCase
+class PremieresTest extends PHPUnit\Framework\TestCase
 {
     public function testUriContainsParameters()
     {

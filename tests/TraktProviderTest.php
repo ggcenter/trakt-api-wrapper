@@ -7,7 +7,7 @@ use NNTmux\Trakt\Auth\TraktProvider;
  * Date: 22/02/15
  * Time: 13:13
  */
-class TraktProviderTest extends PHPUnit_Framework_TestCase
+class TraktProviderTest extends PHPUnit\Framework\TestCase
 {
     public function testProviderCanBeInitiated()
     {

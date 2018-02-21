@@ -15,7 +15,7 @@ use NNTmux\Trakt\Trakt;
  * Date: 14/03/15
  * Time: 11:40
  */
-class MovieTest extends PHPUnit_Framework_TestCase
+class MovieTest extends PHPUnit\Framework\TestCase
 {
 
     protected function tearDown()

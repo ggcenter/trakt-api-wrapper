@@ -14,7 +14,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use NNTmux\Trakt\Console\Generators\EndpointGenerator;
 
-class ApiGeneratorTest extends PHPUnit_Framework_TestCase
+class ApiGeneratorTest extends PHPUnit\Framework\TestCase
 {
     protected $file;
 

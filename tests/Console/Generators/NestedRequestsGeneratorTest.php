@@ -9,7 +9,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use NNTmux\Trakt\Console\Generators\EndpointGenerator;
 
-class NestedRequestsGeneratorTest extends PHPUnit_Framework_TestCase
+class NestedRequestsGeneratorTest extends PHPUnit\Framework\TestCase
 {
 
     private $file;

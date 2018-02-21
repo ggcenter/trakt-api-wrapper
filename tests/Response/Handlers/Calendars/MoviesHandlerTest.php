@@ -12,7 +12,7 @@ use NNTmux\Trakt\Response\Handlers\Calendars\MoviesHandler;
  * Date: 21/03/15
  * Time: 17:05
  */
-class MoviesHandlerTest extends PHPUnit_Framework_TestCase
+class MoviesHandlerTest extends PHPUnit\Framework\TestCase
 {
 
     protected function tearDown()

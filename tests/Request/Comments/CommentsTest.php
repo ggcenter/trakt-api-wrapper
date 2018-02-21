@@ -16,7 +16,7 @@ use NNTmux\Trakt\Request\RequestType;
  * Date: 15/03/15
  * Time: 18:50
  */
-class CommentsTest extends PHPUnit_Framework_TestCase
+class CommentsTest extends PHPUnit\Framework\TestCase
 {
 
     protected function tearDown()

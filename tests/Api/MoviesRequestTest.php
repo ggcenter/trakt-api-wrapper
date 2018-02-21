@@ -9,7 +9,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-class MoviesRequestTest extends PHPUnit_Framework_TestCase
+class MoviesRequestTest extends PHPUnit\Framework\TestCase
 {
     protected $trakt;
 

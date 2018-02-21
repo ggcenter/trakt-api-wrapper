@@ -5,7 +5,7 @@ use Illuminate\Support\Collection;
 use NNTmux\Trakt\Auth\Auth;
 use NNTmux\Trakt\Trakt;
 
-class EpisodesRequestTest extends PHPUnit_Framework_TestCase
+class EpisodesRequestTest extends PHPUnit\Framework\TestCase
 {
 
     protected function tearDown()

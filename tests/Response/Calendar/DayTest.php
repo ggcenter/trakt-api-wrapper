@@ -11,7 +11,7 @@ use NNTmux\Trakt\Response\Calendar\Day;
  * Date: 21/03/15
  * Time: 17:29
  */
-class DayTest extends PHPUnit_Framework_TestCase
+class DayTest extends PHPUnit\Framework\TestCase
 {
     protected function tearDown()
     {

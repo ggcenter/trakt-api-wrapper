@@ -13,7 +13,7 @@ use NNTmux\Trakt\Request\UriBuilder;
  * Date: 16/03/15
  * Time: 22:43
  */
-class UriBuilderTest extends PHPUnit_Framework_TestCase
+class UriBuilderTest extends PHPUnit\Framework\TestCase
 {
     public function testReturnsFormattedUriFromRequestObject()
     {

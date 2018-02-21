@@ -1,6 +1,6 @@
 <?php
 
-class ScrobbleTest extends PHPUnit_Framework_TestCase
+class ScrobbleTest extends PHPUnit\Framework\TestCase
 {
     public function testCanStartScrobbling()
     {

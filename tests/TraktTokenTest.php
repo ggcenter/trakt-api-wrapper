@@ -7,7 +7,7 @@ use NNTmux\Trakt\Auth\Token;
  * Date: 22/02/15
  * Time: 15:00
  */
-class TraktTokenTest extends PHPUnit_Framework_TestCase
+class TraktTokenTest extends PHPUnit\Framework\TestCase
 {
 
 

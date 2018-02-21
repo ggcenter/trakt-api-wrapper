@@ -13,7 +13,7 @@ use NNTmux\Trakt\Request\RequestType;
  * Date: 13/03/15
  * Time: 19:26
  */
-class MovieCheckInTest extends PHPUnit_Framework_TestCase
+class MovieCheckInTest extends PHPUnit\Framework\TestCase
 {
     protected function tearDown()
     {

@@ -7,7 +7,7 @@ use NNTmux\Trakt\Media\Movie;
 use NNTmux\Trakt\Request\Parameters\Type;
 use NNTmux\Trakt\Trakt;
 
-class SearchTest extends PHPUnit_Framework_TestCase
+class SearchTest extends PHPUnit\Framework\TestCase
 {
 
     protected function tearDown()

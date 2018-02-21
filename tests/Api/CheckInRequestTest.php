@@ -5,7 +5,7 @@ use NNTmux\Trakt\Auth\Auth;
 use NNTmux\Trakt\Response\CheckIn;
 use NNTmux\Trakt\Trakt;
 
-class CheckInRequestTest extends PHPUnit_Framework_TestCase
+class CheckInRequestTest extends PHPUnit\Framework\TestCase
 {
     protected function tearDown()
     {

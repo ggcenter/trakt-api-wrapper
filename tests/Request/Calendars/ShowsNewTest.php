@@ -10,7 +10,7 @@ use NNTmux\Trakt\Request\Parameters\StartDate;
  * Date: 12/03/15
  * Time: 12:17
  */
-class ShowsNewTest extends PHPUnit_Framework_TestCase
+class ShowsNewTest extends PHPUnit\Framework\TestCase
 {
 
     public function testStaticCall()
