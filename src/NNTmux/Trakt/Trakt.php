@@ -1,7 +1,5 @@
 <?php namespace NNTmux\Trakt;
 
-
-
 use GuzzleHttp\ClientInterface;
 use NNTmux\Trakt\Api\Calendars;
 use NNTmux\Trakt\Api\CheckIn;
@@ -75,6 +73,7 @@ class Trakt
      * @var Seasons
      */
     public $seasons;
+
     /**
      * @var Shows
      */
@@ -89,6 +88,7 @@ class Trakt
      * @var Sync
      */
     public $sync;
+
     /**
      * @var ClientInterface
      */
@@ -102,6 +102,7 @@ class Trakt
     /**
      * @param Auth $auth
      * @param ClientInterface $client
+     * @throws \InvalidArgumentException
      */
     public function __construct(Auth $auth, ClientInterface $client = null)
     {
