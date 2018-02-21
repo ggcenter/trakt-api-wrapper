@@ -9,7 +9,7 @@
 namespace NNTmux\Trakt\Request\Shows;
 
 
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 use NNTmux\Trakt\Request\AbstractRequest;
 use NNTmux\Trakt\Request\Parameters\TimePeriod;
 use NNTmux\Trakt\Request\RequestType;

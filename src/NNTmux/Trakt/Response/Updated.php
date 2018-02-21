@@ -9,7 +9,7 @@
 namespace NNTmux\Trakt\Response;
 
 
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 use DateTime;
 use GuzzleHttp\ClientInterface;
 use League\OAuth2\Client\Token\AccessToken;

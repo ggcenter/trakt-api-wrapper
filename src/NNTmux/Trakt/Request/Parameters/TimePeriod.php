@@ -8,7 +8,7 @@
 
 namespace NNTmux\Trakt\Request\Parameters;
 
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 
 trait TimePeriod
 {

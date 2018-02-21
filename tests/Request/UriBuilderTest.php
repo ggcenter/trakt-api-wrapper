@@ -1,5 +1,5 @@
 <?php
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 use NNTmux\Trakt\Request\Calendars\My\Shows;
 use NNTmux\Trakt\Request\Movies\Comments;
 use NNTmux\Trakt\Request\Parameters\Days;

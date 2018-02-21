@@ -1,7 +1,7 @@
 <?php
 
 
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 use NNTmux\Trakt\Api;
 use NNTmux\Trakt\Auth\Auth;
 use NNTmux\Trakt\Trakt;

@@ -21,7 +21,7 @@ use NNTmux\Trakt\Request\Shows\Stats as StatsRequest;
 use NNTmux\Trakt\Request\Shows\Summary as SummaryRequest;
 use NNTmux\Trakt\Request\Shows\Translations as TranslationsRequest;
 use NNTmux\Trakt\Request\Shows\Trending as TrendingRequest;
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 use NNTmux\Trakt\Request\Shows\Updates as UpdatesRequest;
 use NNTmux\Trakt\Request\Shows\Watched as WatchedRequest;
 use NNTmux\Trakt\Request\Shows\Watching as WatchingRequest;

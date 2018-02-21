@@ -10,7 +10,7 @@
 namespace NNTmux\Trakt\Api\Calendars;
 
 use League\OAuth2\Client\Token\AccessToken;
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 use NNTmux\Trakt\Request\Calendars\My\Movies as MoviesRequest;
 use NNTmux\Trakt\Request\Calendars\My\NewShows as NewShowsRequest;
 use NNTmux\Trakt\Request\Calendars\My\Premieres as PremieresRequest;

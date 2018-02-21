@@ -4,7 +4,7 @@
 namespace NNTmux\Trakt\Request\Calendars;
 
 
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 use League\OAuth2\Client\Token\AccessToken;
 use NNTmux\Trakt\Request\AbstractRequest;
 use NNTmux\Trakt\Request\Parameters\TimePeriod;

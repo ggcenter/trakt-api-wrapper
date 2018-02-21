@@ -9,7 +9,7 @@
 */
 namespace NNTmux\Trakt\Api\Calendars;
 
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 use NNTmux\Trakt\Request\Calendars\Shows\NewShows as NewShowsRequest;
 use NNTmux\Trakt\Request\Calendars\Shows\Premieres as PremieresRequest;
 use NNTmux\Trakt\Api\Endpoint;

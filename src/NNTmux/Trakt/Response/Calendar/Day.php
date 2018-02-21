@@ -9,7 +9,7 @@
 namespace NNTmux\Trakt\Response\Calendar;
 
 
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 use GuzzleHttp\ClientInterface;
 use League\OAuth2\Client\Token\AccessToken;
 use NNTmux\Trakt\Media\Media;
