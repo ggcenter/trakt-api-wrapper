@@ -16,18 +16,23 @@ use NNTmux\Trakt\Response\Handlers\Search\SearchHandler;
 
 class ById extends AbstractRequest
 {
-
-    /**
-     * @param string $idType
-     * @param $mediaId
-     */
+	
+	/**
+	 * ById constructor.
+	 *
+	 * @param                                              $idType
+	 * @param                                              $mediaId
+	 * @param \League\OAuth2\Client\Token\AccessToken|null $token
+	 *
+	 * @throws \InvalidArgumentException
+	 */
     public function __construct($idType, $mediaId, AccessToken $token = null)
     {
         parent::__construct();
         $this->setQueryParams(
             [
-                "id_type" => $idType,
-                "id" => $mediaId
+	            'id_type' => $idType,
+	            'id'      => $mediaId
             ]
         );
         if ($token !== null) {
@@ -43,6 +48,6 @@ class ById extends AbstractRequest
 
     public function getUri()
     {
-        return "search";
+        return 'search';
     }
 }

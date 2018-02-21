@@ -27,6 +27,6 @@ class Movies extends AbstractRequest
 
     public function getUri()
     {
-        return "calendars/all/movies/:start_date/:days";
+        return 'calendars/all/movies/:start_date/:days';
     }
 }

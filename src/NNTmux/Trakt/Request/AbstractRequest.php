@@ -182,6 +182,7 @@ abstract class AbstractRequest
 	
 	/**
 	 * @return string
+	 * @throws \NNTmux\Trakt\Exception\MalformedParameterException
 	 */
     public function getUrl(): string
     {
@@ -226,7 +227,7 @@ abstract class AbstractRequest
 	/**
 	 * @return array
 	 */
-    protected function getPostBody()
+    protected function getPostBody(): array
     {
         return [];
     }
@@ -247,7 +248,7 @@ abstract class AbstractRequest
     /**
      * @return array
      */
-    private function getHeaders()
+    private function getHeaders(): array
     {
         $token = ($this->token === null) ? '' : 'Bearer ' . $this->token;
         return [
@@ -313,6 +314,7 @@ abstract class AbstractRequest
 	 *
 	 * @return \Psr\Http\Message\ResponseInterface
 	 * @throws \GuzzleHttp\Exception\GuzzleException
+	 * @throws \NNTmux\Trakt\Exception\MalformedParameterException
 	 */
     private function createRequest(ClientInterface $client): ResponseInterface
     {

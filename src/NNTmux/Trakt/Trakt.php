@@ -1,12 +1,8 @@
 <?php namespace NNTmux\Trakt;
 
 
-use Guzzle\Http\Exception\ClientErrorResponseException;
-use Guzzle\Http\Url;
-use Guzzle\Service\Client;
+
 use GuzzleHttp\ClientInterface;
-use League\OAuth2\Client\Provider\ProviderInterface;
-use League\OAuth2\Client\Token\AccessToken;
 use NNTmux\Trakt\Api\Calendars;
 use NNTmux\Trakt\Api\CheckIn;
 use NNTmux\Trakt\Api\Comments;
@@ -22,16 +18,13 @@ use NNTmux\Trakt\Api\Shows;
 use NNTmux\Trakt\Api\Sync;
 use NNTmux\Trakt\Api\Users;
 use NNTmux\Trakt\Auth\Auth;
-use NNTmux\Trakt\Contracts\RequestInterface;
-use NNTmux\Trakt\Exception\InvalidOauthRequestException;
 use NNTmux\Trakt\Auth\TraktProvider;
-use NNTmux\Trakt\Request\AbstractRequest;
 
 class Trakt
 {
-    /**
-     * @var Calendars
-     */
+	/**
+	 * @var Calendars
+	 */
     public $calendars;
 
     /**
@@ -113,7 +106,7 @@ class Trakt
     public function __construct(Auth $auth, ClientInterface $client = null)
     {
         $this->client = $client;
-        if ($client == null) {
+        if ($client === null) {
             $this->client = TraktHttpClient::make();
         }
         $this->auth = $auth;
@@ -124,7 +117,7 @@ class Trakt
     /**
      * Creates the wrappers for all public properties and sets them.
      */
-    private function createWrappers()
+    private function createWrappers(): void
     {
         $id = $this->auth->provider->getClientId();
         $this->calendars = new Calendars($id, $this->client);

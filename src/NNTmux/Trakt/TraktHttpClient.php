@@ -7,16 +7,17 @@ use GuzzleHttp\Client;
 class TraktHttpClient
 {
 
-    const API_URL = 'api.trakt.tv';
+    public const API_URL = 'https://api.trakt.tv';
 
-    const API_VERSION = 2;
-
-    const API_SCHEME = 'https';
-
-    public static function make()
+    public const API_VERSION = 2;
+	
+	/**
+	 * @return \GuzzleHttp\Client
+	 * @throws \InvalidArgumentException
+	 */
+    public static function make(): Client
     {
-        $host = static::API_URL;
 
-        return new Client(['base_url' => [static::API_SCHEME . '://' . $host, ['version' => static::API_VERSION]]]);
+        return new Client(['base_url' => [self::API_URL, ['version' => self::API_VERSION]]]);
     }
 }

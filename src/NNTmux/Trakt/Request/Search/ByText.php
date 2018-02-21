@@ -28,13 +28,17 @@ class ByText extends AbstractRequest
      * @var
      */
     private $year;
-
-    /**
-     * @param string $query
-     * @param string $type
-     * @param int $year
-     * @param AccessToken $token
-     */
+	
+	/**
+	 * ByText constructor.
+	 *
+	 * @param                                              $query
+	 * @param null                                         $type
+	 * @param null                                         $year
+	 * @param \League\OAuth2\Client\Token\AccessToken|null $token
+	 *
+	 * @throws \InvalidArgumentException
+	 */
     public function __construct($query, $type = null, $year = null, AccessToken $token = null)
     {
         parent::__construct();
@@ -51,28 +55,37 @@ class ByText extends AbstractRequest
         $this->setQueryParams($queryParams);
         $this->setResponseHandler(new SearchHandler());
     }
-
+	
+	/**
+	 * @return mixed|string
+	 */
     public function getRequestType()
     {
         return RequestType::GET;
     }
-
+	
+	/**
+	 * @return mixed|string
+	 */
     public function getUri()
     {
-        return "search";
+        return 'search';
     }
-
+	
+	/**
+	 * @return array
+	 */
     private function makeQueryParams()
     {
         $params = [];
 
         $params['query'] = $this->query;
 
-        if (!is_null($this->type)) {
+        if ($this->type !== null) {
             $params['type'] = $this->type;
         }
 
-        if (!is_null($this->year)) {
+        if ($this->year !== null) {
             $params['year'] = $this->year;
         }
 
