@@ -8,7 +8,9 @@ This is the Trakt API wrapper for their new API (version 2). It's in active deve
 
 ## Installation
 
-In your composer.json file add:`"wubs/trakt": "~2.0"` and run `composer install`
+In your composer.json file add:`"nntmux/trakt": "~3.0"` and run `composer install`
+
+Or you can issue: `composer require nntmux/trakt`
 
 ## The goal
 
