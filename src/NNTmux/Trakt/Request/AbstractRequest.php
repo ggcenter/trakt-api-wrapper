@@ -8,16 +8,14 @@
 
 namespace NNTmux\Trakt\Request;
 
-use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ServerException;
-use GuzzleHttp\Message\ResponseInterface;
 use Illuminate\Support\Collection;
 use League\OAuth2\Client\Token\AccessToken;
 use NNTmux\Trakt\Contracts\ResponseHandler;
 use NNTmux\Trakt\Request\Exception\HttpCodeException\ExceptionStatusCodeFactory;
-use NNTmux\Trakt\Response\Handlers\AbstractResponseHandler;
 use NNTmux\Trakt\Response\Handlers\DefaultResponseHandler;
+use Psr\Http\Message\ResponseInterface;
 
 abstract class AbstractRequest
 {
@@ -25,16 +23,15 @@ abstract class AbstractRequest
      * @var string
      */
     private $clientId;
-
-    private $page = 1;
-
-    private $limit = 10;
-
-    /**
-     * @var Collection|string[]
-     */
+	
+	/**
+	 * @var \Illuminate\Support\Collection
+	 */
     protected $queryParams;
-
+	
+	/**
+	 * @var
+	 */
     protected $allowedExtended;
 
     /**
@@ -46,61 +43,66 @@ abstract class AbstractRequest
      * @var AccessToken|null
      */
     private $token = null;
-
+	
+	/**
+	 * @var
+	 */
     private $extended;
-
-    /**
-     *
-     */
+	
+	/**
+	 * AbstractRequest constructor.
+	 */
     public function __construct()
     {
         $this->queryParams = new Collection();
 
         $this->setResponseHandler(new DefaultResponseHandler());
     }
-
-    /**
-     * @param $clientId
-     */
-    public function setClientId($clientId)
+	
+	/**
+	 * @param $clientId
+	 */
+    public function setClientId($clientId): void
     {
-        if (!is_null($clientId)) {
+        if ($clientId !== null) {
             $this->clientId = $clientId;
         }
     }
-
-    /**
-     * @param AccessToken $token
-     */
-    public function setToken(AccessToken $token = null)
+	
+	/**
+	 * @param \League\OAuth2\Client\Token\AccessToken|null $token
+	 */
+    public function setToken(AccessToken $token = null): void
     {
         $this->token = $token;
     }
-
-    /**
-     * @param $level
-     * @return $this
-     */
-    public function setExtended($level)
+	
+	/**
+	 * @param $level
+	 *
+	 * @return \NNTmux\Trakt\Request\AbstractRequest
+	 */
+    public function setExtended($level): self
     {
-        $this->addQueryParam("extended", $level);
+        $this->addQueryParam('extended', $level);
         return $this;
     }
-
-    /**
-     * @return mixed
-     */
+	
+	/**
+	 * @return mixed
+	 */
     public function getExtended()
     {
         return $this->extended;
     }
-
-
-    /**
-     * @param int $page
-     * @return AbstractRequest
-     */
-    public function setPage($page)
+	
+	
+	/**
+	 * @param $page
+	 *
+	 * @return \NNTmux\Trakt\Request\AbstractRequest
+	 */
+    public function setPage($page): AbstractRequest
     {
         $this->addQueryParam('page', $page);
         return $this;
@@ -115,20 +117,28 @@ abstract class AbstractRequest
         $this->addQueryParam('limit', $limit);
         return $this;
     }
-
-    public function addQueryParam($key, $value)
+	
+	/**
+	 * @param $key
+	 * @param $value
+	 *
+	 * @return $this
+	 */
+    public function addQueryParam($key, $value): self
     {
         $this->queryParams->put($key, $value);
         return $this;
     }
-
-    /**
-     * @param array $params
-     * @return $this
-     */
-    public function setQueryParams($params)
+	
+	/**
+	 * @param $params
+	 *
+	 * @return $this
+	 * @throws \InvalidArgumentException
+	 */
+    public function setQueryParams($params): self
     {
-        if (is_array($params)) {
+        if (\is_array($params)) {
             $this->queryParams = collect($params);
             return $this;
         }
@@ -138,19 +148,21 @@ abstract class AbstractRequest
             return $this;
         }
 
-        throw new \InvalidArgumentException("The parameters should be an array or an instance of " . Collection::class);
+        throw new \InvalidArgumentException('The parameters should be an array or an instance of ' . Collection::class);
     }
-
-    /**
-     * @param $clientId
-     * @param ClientInterface $client
-     * @param ResponseHandler|AbstractResponseHandler $responseHandler
-     * @return mixed
-     * @throws Exception\HttpCodeException\RateLimitExceededException
-     * @throws Exception\HttpCodeException\ServerErrorException
-     * @throws Exception\HttpCodeException\ServerUnavailableException
-     * @throws Exception\HttpCodeException\StatusCodeException
-     */
+	
+	/**
+	 * @param                                              $clientId
+	 * @param \GuzzleHttp\ClientInterface                  $client
+	 * @param \NNTmux\Trakt\Contracts\ResponseHandler|null $responseHandler
+	 *
+	 * @return mixed
+	 * @throws \GuzzleHttp\Exception\GuzzleException
+	 * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+	 * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+	 * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+	 * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+	 */
     public function make($clientId, ClientInterface $client, ResponseHandler $responseHandler = null)
     {
         $this->setResponseHandler($responseHandler);
@@ -160,15 +172,18 @@ abstract class AbstractRequest
         $request = $this->createRequest($client);
 
         $response = $this->send($client, $request);
-
-        if ($this->notSuccessful($response)) {
-            throw ExceptionStatusCodeFactory::create($response->getStatusCode());
-        }
+	
+	    if ($response !== null && $this->notSuccessful($response)) {
+	        throw ExceptionStatusCodeFactory::create($response->getStatusCode());
+	    }
 
         return $this->handleResponse($response, $client);
     }
-
-    public function getUrl()
+	
+	/**
+	 * @return string
+	 */
+    public function getUrl(): string
     {
         return UriBuilder::format($this);
     }
@@ -176,14 +191,20 @@ abstract class AbstractRequest
     /**
      * @param ResponseHandler $responseHandler
      */
-    public function setResponseHandler(ResponseHandler $responseHandler = null)
+    public function setResponseHandler(ResponseHandler $responseHandler = null): void
     {
         if ($responseHandler) {
             $this->responseHandler = $responseHandler;
         }
     }
-
-
+	
+	
+	/**
+	 * @param \Psr\Http\Message\ResponseInterface $response
+	 * @param \GuzzleHttp\ClientInterface         $client
+	 *
+	 * @return mixed
+	 */
     protected function handleResponse(ResponseInterface $response, ClientInterface $client)
     {
         $handler = $this->getResponseHandler();
@@ -193,15 +214,18 @@ abstract class AbstractRequest
 
         return $handler->handle($response, $client);
     }
-
-    /**
-     * @return ResponseHandler
-     */
-    public function getResponseHandler()
+	
+	/**
+	 * @return \NNTmux\Trakt\Contracts\ResponseHandler
+	 */
+    public function getResponseHandler(): ResponseHandler
     {
         return $this->responseHandler;
     }
-
+	
+	/**
+	 * @return array
+	 */
     protected function getPostBody()
     {
         return [];
@@ -210,11 +234,11 @@ abstract class AbstractRequest
     /**
      * @return array
      */
-    private function getOptions()
+    private function getOptions(): array
     {
         $options = [
-            "headers" => $this->getHeaders(),
-            "query" => $this->queryParams->toArray()
+	        'headers' => $this->getHeaders(),
+	        'query'   => $this->queryParams->toArray()
         ];
 
         return $this->setBody($options);
@@ -225,18 +249,23 @@ abstract class AbstractRequest
      */
     private function getHeaders()
     {
-        $token = (is_null($this->token)) ? "" : "Bearer " . $this->token;
+        $token = ($this->token === null) ? '' : 'Bearer ' . $this->token;
         return [
-            "content-type" => "application/json",
-            'Authorization' => $token,
-            "trakt-api-version" => 2,
-            "trakt-api-key" => $this->clientId
+	        'content-type'      => 'application/json',
+	        'Authorization'     => $token,
+	        'trakt-api-version' => 2,
+	        'trakt-api-key'     => $this->clientId
         ];
     }
-
-    private function notSuccessful(ResponseInterface $response)
+	
+	/**
+	 * @param \Psr\Http\Message\ResponseInterface $response
+	 *
+	 * @return bool
+	 */
+    private function notSuccessful(ResponseInterface $response): bool
     {
-        return (!in_array($response->getStatusCode(), [200, 201, 204, 504]));
+        return (!\in_array($response->getStatusCode(), [200, 201, 204, 504], false));
     }
 
     /**
@@ -252,18 +281,23 @@ abstract class AbstractRequest
 
         return $options;
     }
-
-    private function needsPostBody()
+	
+	/**
+	 * @return bool
+	 */
+    private function needsPostBody(): bool
     {
-        return in_array($this->getRequestType(), [RequestType::PUT, RequestType::POST]);
+        return \in_array($this->getRequestType(), [RequestType::PUT, RequestType::POST], false);
     }
-
-    /**
-     * @param ClientInterface $client
-     * @param $request
-     * @return ResponseInterface|null
-     */
-    private function send(ClientInterface $client, $request)
+	
+	/**
+	 * @param \GuzzleHttp\ClientInterface $client
+	 * @param                             $request
+	 *
+	 * @return null|\Psr\Http\Message\ResponseInterface
+	 * @throws \GuzzleHttp\Exception\GuzzleException
+	 */
+    private function send(ClientInterface $client, $request): ?ResponseInterface
     {
         try {
             $response = $client->send($request);
@@ -273,22 +307,30 @@ abstract class AbstractRequest
             return $response;
         }
     }
-
-    /**
-     * @param ClientInterface $client
-     * @return \GuzzleHttp\Message\RequestInterface
-     */
-    private function createRequest(ClientInterface $client)
+	
+	/**
+	 * @param \GuzzleHttp\ClientInterface $client
+	 *
+	 * @return \Psr\Http\Message\ResponseInterface
+	 * @throws \GuzzleHttp\Exception\GuzzleException
+	 */
+    private function createRequest(ClientInterface $client): ResponseInterface
     {
-        $request = $client->createRequest(
+        $request = $client->request(
             $this->getRequestType(),
             $this->getUrl(),
             $this->getOptions()
         );
         return $request;
     }
-
+	
+	/**
+	 * @return mixed
+	 */
     abstract public function getRequestType();
-
+	
+	/**
+	 * @return mixed
+	 */
     abstract public function getUri();
 }

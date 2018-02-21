@@ -9,7 +9,7 @@
 namespace NNTmux\Trakt\Response\Handlers;
 
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 use NNTmux\Trakt\Contracts\ResponseHandler;
 use NNTmux\Trakt\Request\Parameters\AbstractParameter;
 

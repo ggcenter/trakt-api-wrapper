@@ -10,7 +10,7 @@ namespace NNTmux\Trakt\Response\Handlers;
 
 
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 use League\OAuth2\Client\Token\AccessToken;
 
 class AbstractResponseHandler

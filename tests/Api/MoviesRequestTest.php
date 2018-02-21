@@ -7,7 +7,7 @@ use NNTmux\Trakt\Media\Movie;
 use NNTmux\Trakt\Trakt;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
-use GuzzleHttp\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 
 class MoviesRequestTest extends PHPUnit_Framework_TestCase
 {

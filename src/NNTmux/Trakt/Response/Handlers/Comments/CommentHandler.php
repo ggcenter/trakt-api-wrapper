@@ -9,7 +9,7 @@
 namespace NNTmux\Trakt\Response\Handlers\Comments;
 
 
-use GuzzleHttp\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 use Illuminate\Support\Collection;
 use NNTmux\Trakt\Contracts\ResponseHandler;
 use NNTmux\Trakt\Response\Comment;

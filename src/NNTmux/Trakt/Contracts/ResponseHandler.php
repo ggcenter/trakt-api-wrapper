@@ -1,7 +1,8 @@
 <?php namespace NNTmux\Trakt\Contracts;
 
-use GuzzleHttp\Message\ResponseInterface;
+use GuzzleHttp\ClientInterface;
 use League\OAuth2\Client\Token\AccessToken;
+use Psr\Http\Message\ResponseInterface;
 
 
 /**
@@ -12,7 +13,7 @@ use League\OAuth2\Client\Token\AccessToken;
  */
 interface ResponseHandler
 {
-    public function handle(ResponseInterface $response, \GuzzleHttp\ClientInterface $client);
+    public function handle(ResponseInterface $response, ClientInterface $client);
 
     public function setClientId($id);
 

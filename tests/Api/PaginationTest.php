@@ -1,7 +1,7 @@
 <?php
 
 
-use GuzzleHttp\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 use Illuminate\Support\Collection;
 use League\OAuth2\Client\Token\AccessToken;
 use NNTmux\Trakt\Api\Movies;

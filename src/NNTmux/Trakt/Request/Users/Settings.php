@@ -1,7 +1,7 @@
 <?php namespace NNTmux\Trakt\Request\Users;
 
 use GuzzleHttp\Message\Response;
-use GuzzleHttp\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 use League\OAuth2\Client\Token\AccessToken;
 use NNTmux\Trakt\Request\AbstractRequest;
 use NNTmux\Trakt\Request\RequestType;

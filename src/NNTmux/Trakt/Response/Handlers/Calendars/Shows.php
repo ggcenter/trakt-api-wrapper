@@ -9,7 +9,7 @@
 namespace NNTmux\Trakt\Response\Handlers\Calendars;
 
 
-use GuzzleHttp\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 use NNTmux\Trakt\Media\Episode;
 use NNTmux\Trakt\Contracts\ResponseHandler;
 use NNTmux\Trakt\Request\Parameters\Type;

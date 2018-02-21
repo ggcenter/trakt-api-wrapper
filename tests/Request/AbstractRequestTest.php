@@ -2,7 +2,7 @@
 use Carbon\Carbon;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
-use GuzzleHttp\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 use NNTmux\Trakt\Contracts\ResponseHandler;
 use NNTmux\Trakt\Request\AbstractRequest;
 use NNTmux\Trakt\Request\Calendars\My;

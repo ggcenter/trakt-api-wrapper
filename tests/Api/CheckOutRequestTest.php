@@ -3,7 +3,7 @@
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
-use GuzzleHttp\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 use NNTmux\Trakt\Auth\Auth;
 use NNTmux\Trakt\Trakt;
 

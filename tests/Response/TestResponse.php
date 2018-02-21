@@ -1,7 +1,7 @@
 <?php
 
 use GuzzleHttp\Exception\ParseException;
-use GuzzleHttp\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 use GuzzleHttp\Stream\StreamInterface;
 use GuzzleHttp\Utils;
 

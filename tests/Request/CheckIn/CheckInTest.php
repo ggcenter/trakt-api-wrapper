@@ -2,7 +2,7 @@
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
-use GuzzleHttp\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 use NNTmux\Trakt\Media\Movie;
 use NNTmux\Trakt\Request\CheckIn\Delete;
 use NNTmux\Trakt\Request\CheckIn\Create;

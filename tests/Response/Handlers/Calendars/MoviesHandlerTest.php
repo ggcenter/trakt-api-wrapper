@@ -1,7 +1,7 @@
 <?php
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
-use GuzzleHttp\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 use NNTmux\Trakt\Response\Calendar\Calendar;
 use NNTmux\Trakt\Response\Calendar\Day;
 use NNTmux\Trakt\Response\Handlers\Calendars\MoviesHandler;

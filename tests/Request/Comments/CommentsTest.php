@@ -1,7 +1,7 @@
 <?php
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
-use GuzzleHttp\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 use NNTmux\Trakt\Request\Comments\Delete;
 use NNTmux\Trakt\Request\Comments\Get;
 use NNTmux\Trakt\Request\Comments\Create;

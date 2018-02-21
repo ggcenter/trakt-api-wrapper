@@ -9,7 +9,7 @@
 namespace NNTmux\Trakt\Response\Handlers\Movies;
 
 
-use GuzzleHttp\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 use NNTmux\Trakt\Contracts\ResponseHandler;
 use NNTmux\Trakt\Response\Handlers\AbstractResponseHandler;
 use NNTmux\Trakt\Response\Updated;

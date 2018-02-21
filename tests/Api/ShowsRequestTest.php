@@ -7,7 +7,7 @@ use NNTmux\Trakt\Auth\Auth;
 use NNTmux\Trakt\Trakt;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
-use GuzzleHttp\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 
 class ShowsRequestTest extends PHPUnit_Framework_TestCase
 {

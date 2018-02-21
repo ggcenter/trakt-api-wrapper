@@ -3,7 +3,7 @@
 use Carbon\Carbon;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
-use GuzzleHttp\Message\ResponseInterface;
+use Psr\Http\Message\ResponseInterface;
 use Mockery\Mock;
 use NNTmux\Trakt\Api;
 use NNTmux\Trakt\Auth\Auth;
