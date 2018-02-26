@@ -7,7 +7,7 @@ before_script:
   - env | grep TRAKT_ > .env
 
 before_install:
-  - docker pull megawubs/trakt-api:dev
+  - docker pull nntmux/trakt-api
 
 install:
   - docker-compose run trakt-api composer install --prefer-dist

@@ -1,5 +1,5 @@
 trakt-api:
-  image: megawubs/trakt-api:dev
+  image: nntmux/trakt-api
   volumes:
     - '.:/source'
   environment:
