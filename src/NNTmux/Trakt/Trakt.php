@@ -114,9 +114,11 @@ class Trakt
         $this->createWrappers();
     }
 
-
     /**
      * Creates the wrappers for all public properties and sets them.
+     *
+     *
+     * @throws \ReflectionException
      */
     private function createWrappers(): void
     {

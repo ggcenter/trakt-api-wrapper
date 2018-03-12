@@ -23,6 +23,9 @@ class Movie extends Media
 
     public $fanart;
 
-    protected $standard = ["title", "year", "ids"];
+    /**
+     * @var array
+     */
+    protected $standard = ['title', 'year', 'ids'];
 
 }

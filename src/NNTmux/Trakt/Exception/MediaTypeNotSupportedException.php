@@ -11,5 +11,5 @@ namespace NNTmux\Trakt\Exception;
 
 class MediaTypeNotSupportedException extends \Exception
 {
-    protected $message = "The response object contains a type that is not (yet) supported";
+    protected $message = 'The response object contains a type that is not (yet) supported';
 }

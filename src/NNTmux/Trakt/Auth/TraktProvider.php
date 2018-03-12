@@ -21,11 +21,11 @@ class TraktProvider extends AbstractProvider
     {
         parent::__construct(
             [
-                "clientId" => (string)$clientId,
-                "clientSecret" => $clientSecret,
-                "redirectUri" => $redirectUrl,
-                "state" => $state,
-                "response_type" => $type
+                'clientId' => (string)$clientId,
+                'clientSecret' => $clientSecret,
+                'redirectUri' => $redirectUrl,
+                'state' => $state,
+                'response_type' => $type
             ]
         );
     }
@@ -76,8 +76,8 @@ class TraktProvider extends AbstractProvider
     public function userDetails($response, AccessToken $token)
     {
     }
-	
-	
+
+
 	/**
 	 * Returns the base URL for authorizing a client.
 	 *
@@ -89,7 +89,7 @@ class TraktProvider extends AbstractProvider
 	{
 		// TODO: Implement getBaseAuthorizationUrl() method.
 	}
-	
+
 	/**
 	 * Returns the base URL for requesting an access token.
 	 *
@@ -103,7 +103,7 @@ class TraktProvider extends AbstractProvider
 	{
 		// TODO: Implement getBaseAccessTokenUrl() method.
 	}
-	
+
 	/**
 	 * Returns the URL for requesting the resource owner's details.
 	 *
@@ -115,7 +115,7 @@ class TraktProvider extends AbstractProvider
 	{
 		// TODO: Implement getResourceOwnerDetailsUrl() method.
 	}
-	
+
 	/**
 	 * Returns the default scopes used by this provider.
 	 *
@@ -128,7 +128,7 @@ class TraktProvider extends AbstractProvider
 	{
 		// TODO: Implement getDefaultScopes() method.
 	}
-	
+
 	/**
 	 * Checks a provider response for errors.
 	 *
@@ -143,7 +143,7 @@ class TraktProvider extends AbstractProvider
 	{
 		// TODO: Implement checkResponse() method.
 	}
-	
+
 	/**
 	 * Generates a resource owner object from a successful resource owner
 	 * details request.

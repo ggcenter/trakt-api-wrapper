@@ -16,35 +16,91 @@ use NNTmux\Trakt\Request\Seasons\Summary as SummaryRequest;
 use NNTmux\Trakt\Request\Seasons\Watching as WatchingRequest;
 
 class Seasons extends Endpoint {
-    
 
-
+    /**
+     * @param $mediaId
+     * @param $season
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
     public function comments($mediaId, $season)
     {
         return $this->request(new CommentsRequest($mediaId, $season));
     }
 
-	public function ratings($mediaId, $season)
+    /**
+     * @param $mediaId
+     * @param $season
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
+    public function ratings($mediaId, $season)
     {
         return $this->request(new RatingsRequest($mediaId, $season));
     }
 
-	public function season($mediaId, $season)
+    /**
+     * @param $mediaId
+     * @param $season
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
+    public function season($mediaId, $season)
     {
         return $this->request(new SeasonRequest($mediaId, $season));
     }
 
-	public function summary($mediaId)
+    /**
+     * @param $mediaId
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
+    public function summary($mediaId)
     {
         return $this->request(new SummaryRequest($mediaId));
     }
 
-	public function get($mediaId)
+    /**
+     * @param $mediaId
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
+    public function get($mediaId)
     {
         return $this->request(new SummaryRequest($mediaId));
     }
 
-	public function watching($mediaId, $season)
+    /**
+     * @param $mediaId
+     * @param $season
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
+    public function watching($mediaId, $season)
     {
         return $this->request(new WatchingRequest($mediaId, $season));
     }

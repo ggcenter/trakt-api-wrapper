@@ -14,32 +14,38 @@ class TraktGenerateCommand extends Command
 {
     public function configure()
     {
-        $this->setName("wrapper:generate")
-            ->setDescription("Generates the wrapper classes from source")
+        $this->setName('wrapper:generate')
+            ->setDescription('Generates the wrapper classes from source')
             ->addArgument(
                 'endpoint',
                 InputArgument::OPTIONAL,
                 'The endpoint you want to generate the wrapper for'
             )->addOption(
-                "force",
+                'force',
                 '-f',
-                InputOption::VALUE_NONE,
-                "Force generation, assumes yes on all questions."
+                InputOption::VALUE_NONE, 'Force generation, assumes yes on all questions.'
             )
             ->addOption(
                 "delete",
                 '-d',
-                InputOption::VALUE_NONE,
-                "Delete all files and folders before regenerating. Useful for when names are changed."
+                InputOption::VALUE_NONE, 'Delete all files and folders before regenerating. Useful for when names are changed.'
             );
     }
 
+    /**
+     * @param \Symfony\Component\Console\Input\InputInterface $input
+     * @param \Symfony\Component\Console\Output\OutputInterface $output
+     * @return bool|int|null
+     * @throws \Symfony\Component\Console\Exception\InvalidArgumentException
+     * @throws \LogicException
+     * @throws \League\Flysystem\FileNotFoundException
+     */
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $generator = new EndpointGenerator($input, $output, new QuestionHelper(), $input->getOption("force"), $input->getOption("delete"));
+        $generator = new EndpointGenerator($input, $output, new QuestionHelper(), $input->getOption('force'), $input->getOption('delete'));
 
         if ($endpoint = $input->getArgument('endpoint')) {
-            $output->writeln("Generating endpoint wrapper for: " . $endpoint);
+            $output->writeln('Generating endpoint wrapper for: '. $endpoint);
             $generator->generateForEndpoint($endpoint);
             return true;
         }

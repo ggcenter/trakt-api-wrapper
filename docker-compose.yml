@@ -4,5 +4,5 @@ trakt-api:
     - '.:/source'
   environment:
     - PHP_IDE_CONFIG=serverName=trakt.dev
-    - XDEBUG_CONFIG=idekey=phpstorm remote_host=192.168.1.123
+    - XDEBUG_CONFIG=idekey=phpstorm remote_host=127.0.0.1
 

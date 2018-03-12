@@ -29,19 +29,23 @@ class Premieres extends AbstractRequest
         parent::__construct();
         $this->setDays($days);
         $this->setStartDate($startDate);
-
-//        $this->setResponseHandler(new ShowsResponse());
         $this->setToken($accessToken);
     }
 
+    /**
+     * @return mixed|string
+     */
     public function getRequestType()
     {
         return RequestType::GET;
     }
 
+    /**
+     * @return mixed|string
+     */
     public function getUri()
     {
-        return "calendars/my/shows/premieres/:start_date/:days";
+        return 'calendars/my/shows/premieres/:start_date/:days';
     }
 
 

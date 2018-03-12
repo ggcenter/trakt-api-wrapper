@@ -2,6 +2,7 @@
 
 namespace NNTmux\Trakt\Facades;
 use Illuminate\Support\Facades\Facade;
+
 class TraktApi extends Facade
 {
 	/**

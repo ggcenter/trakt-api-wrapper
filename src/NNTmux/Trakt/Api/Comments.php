@@ -25,32 +25,87 @@ class Comments extends Endpoint {
     */
     public $like;
 
+    /**
+     * @param \NNTmux\Trakt\Media\Media $media
+     * @param $comment
+     * @param bool $spoiler
+     * @return mixed
+     * @throws \NNTmux\Trakt\Request\Exception\CommentTooShortException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
     public function create(Media $media, $comment, $spoiler = false)
     {
         return $this->request(new CreateRequest($media, $comment, $spoiler));
     }
 
-	public function delete(AccessToken $token, $commentId)
+    /**
+     * @param \League\OAuth2\Client\Token\AccessToken $token
+     * @param $commentId
+     * @return mixed
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
+    public function delete(AccessToken $token, $commentId)
     {
         return $this->request(new DeleteRequest($token, $commentId));
     }
 
-	public function get($commentId)
+    /**
+     * @param $commentId
+     * @return mixed
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
+    public function get($commentId)
     {
         return $this->request(new GetRequest($commentId));
     }
 
-	public function like($commentId)
+    /**
+     * @param $commentId
+     * @return mixed
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
+    public function like($commentId)
     {
         return $this->request(new LikeRequest($commentId));
     }
 
-	public function replies($commentId)
+    /**
+     * @param $commentId
+     * @return mixed
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
+    public function replies($commentId)
     {
         return $this->request(new RepliesRequest($commentId));
     }
 
-	public function update($commentId, $comment, $spoiler)
+    /**
+     * @param $commentId
+     * @param $comment
+     * @param $spoiler
+     * @return mixed
+     * @throws \NNTmux\Trakt\Request\Exception\CommentTooShortException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
+    public function update($commentId, $comment, $spoiler)
     {
         return $this->request(new UpdateRequest($commentId, $comment, $spoiler));
     }

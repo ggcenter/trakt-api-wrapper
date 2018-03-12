@@ -17,19 +17,43 @@ use NNTmux\Trakt\Api\Endpoint;
 
 class Followers extends Endpoint {
     
-
-
+    /**
+     * @param \League\OAuth2\Client\Token\AccessToken $token
+     * @param $followerRequestId
+     * @return mixed
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
     public function approve(AccessToken $token, $followerRequestId)
     {
         return $this->request(new ApproveRequest($token, $followerRequestId));
     }
 
-	public function deny(AccessToken $token, $followerRequestId)
+    /**
+     * @param \League\OAuth2\Client\Token\AccessToken $token
+     * @param $followerRequestId
+     * @return mixed
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
+    public function deny(AccessToken $token, $followerRequestId)
     {
         return $this->request(new DenyRequest($token, $followerRequestId));
     }
 
-	public function get(AccessToken $token)
+    /**
+     * @param \League\OAuth2\Client\Token\AccessToken $token
+     * @return mixed
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
+    public function get(AccessToken $token)
     {
         return $this->request(new GetRequest($token));
     }

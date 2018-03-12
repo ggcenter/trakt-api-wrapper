@@ -14,6 +14,12 @@ class NewShows extends AbstractRequest
 {
     use TimePeriod;
 
+    /**
+     * NewShows constructor.
+     *
+     * @param \Illuminate\Support\Carbon|null $startDate
+     * @param null $days
+     */
     public function __construct(Carbon $startDate = null, $days = null)
     {
         parent::__construct();
@@ -21,13 +27,19 @@ class NewShows extends AbstractRequest
         $this->setDays($days);
     }
 
+    /**
+     * @return mixed|string
+     */
     public function getRequestType()
     {
         return RequestType::GET;
     }
 
+    /**
+     * @return mixed|string
+     */
     public function getUri()
     {
-        return "calendars/all/shows/new/:start_date/:days";
+        return 'calendars/all/shows/new/:start_date/:days';
     }
 }

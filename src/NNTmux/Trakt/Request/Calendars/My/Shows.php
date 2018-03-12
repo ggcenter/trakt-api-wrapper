@@ -30,14 +30,20 @@ class Shows extends AbstractRequest
         $this->setToken($accessToken);
     }
 
+    /**
+     * @return mixed|string
+     */
     public function getRequestType()
     {
         return RequestType::GET;
     }
 
+    /**
+     * @return mixed|string
+     */
     public function getUri()
     {
-        return "calendars/my/shows/:start_date/:days";
+        return 'calendars/my/shows/:start_date/:days';
     }
 
 

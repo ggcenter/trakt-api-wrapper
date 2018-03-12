@@ -20,11 +20,17 @@ class Movies extends AbstractRequest
         $this->setDays($days);
     }
 
+    /**
+     * @return mixed|string
+     */
     public function getRequestType()
     {
         return RequestType::GET;
     }
 
+    /**
+     * @return mixed|string
+     */
     public function getUri()
     {
         return 'calendars/all/movies/:start_date/:days';

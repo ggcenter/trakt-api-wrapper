@@ -26,16 +26,22 @@ abstract class Media implements Arrayable
     protected $standard = [];
 
     protected $id;
+
     /**
      * @var AccessToken
      */
     protected $token;
 
+    /**
+     * @var
+     */
     protected $type;
     /**
      * @var ClientInterface
      */
     protected $client;
+
+    protected $media;
 
     /**
      * @param $json

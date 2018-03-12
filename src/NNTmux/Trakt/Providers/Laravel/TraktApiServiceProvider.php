@@ -32,7 +32,7 @@ class TraktApiServiceProvider extends ServiceProvider
             TraktProvider::class,
             function ($app) {
                 return new TraktProvider(
-                    config("trakt.client_id"),
+                    config('trakt.client_id'),
                     config('trakt.client_secret'),
                     config('trakt.trakt_redirect_uri')
                 );

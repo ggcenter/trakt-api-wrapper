@@ -17,19 +17,25 @@ class Property
     private $fullClassName;
 
     /**
+     * Property constructor.
+     *
      * @param $fullClassName
-     * @param FilesystemInterface $filesystem
+     * @param \League\Flysystem\FilesystemInterface $filesystem
+     * @throws \League\Flysystem\FileNotFoundException
      */
     public function __construct($fullClassName, FilesystemInterface $filesystem)
     {
-        $this->template = $filesystem->read("/Console/stubs/property.stub");
+        $this->template = $filesystem->read('/Console/stubs/property.stub');
         $this->filesystem = $filesystem;
         $this->fullClassName = collect(explode("\\", $fullClassName));
     }
 
+    /**
+     * @return string
+     */
     public function generate()
     {
-        return $this->writeInTemplate("property_type", $this->fullClassName->implode("\\"))
-            ->writeInTemplate("property_name", lcfirst($this->fullClassName->last()))->template;
+        return $this->writeInTemplate('property_type', $this->fullClassName->implode("\\"))
+            ->writeInTemplate('property_name', lcfirst($this->fullClassName->last()))->template;
     }
 }

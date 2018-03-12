@@ -15,24 +15,58 @@ use NNTmux\Trakt\Request\People\Summary as SummaryRequest;
 
 class People extends Endpoint {
     
-
-
+    /**
+     * @param $mediaId
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
     public function movies($mediaId)
     {
         return $this->request(new MoviesRequest($mediaId));
     }
 
-	public function shows($mediaId)
+    /**
+     * @param $mediaId
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
+    public function shows($mediaId)
     {
         return $this->request(new ShowsRequest($mediaId));
     }
 
-	public function summary($mediaId)
+    /**
+     * @param $mediaId
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
+    public function summary($mediaId)
     {
         return $this->request(new SummaryRequest($mediaId));
     }
 
-	public function get($mediaId)
+    /**
+     * @param $mediaId
+     * @return mixed
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+     */
+    public function get($mediaId)
     {
         return $this->request(new SummaryRequest($mediaId));
     }

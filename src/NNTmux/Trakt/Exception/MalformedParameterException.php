@@ -12,5 +12,5 @@ namespace NNTmux\Trakt\Exception;
 class MalformedParameterException extends \Exception
 {
 
-    protected $message = "Trying to access a getter that does not exists on the request object";
+    protected $message = 'Trying to access a getter that does not exists on the request object';
 }

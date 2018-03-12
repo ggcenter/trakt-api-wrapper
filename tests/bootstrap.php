@@ -8,7 +8,7 @@
 
 use Dotenv\Dotenv;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Message\RequestInterface;
+use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use NNTmux\Trakt\Auth\Auth;
 use NNTmux\Trakt\Media\Episode;
@@ -16,7 +16,7 @@ use NNTmux\Trakt\Media\Movie;
 use NNTmux\Trakt\Auth\TraktProvider;
 use NNTmux\Trakt\Auth\Token;
 
-require __DIR__ . "/../vendor/autoload.php";
+require __DIR__ .'/../vendor/autoload.php';
 
 (new Dotenv(dirname(__DIR__)))->load();
 
@@ -36,17 +36,17 @@ function get_token()
 
 function get_client_id()
 {
-    return getenv("TRAKT_CLIENT_ID");
+    return getenv('TRAKT_CLIENT_ID');
 }
 
 function get_client_secret()
 {
-    return getenv("TRAKT_CLIENT_SECRET");
+    return getenv('TRAKT_CLIENT_SECRET');
 }
 
 function get_redirect_url()
 {
-    return getenv("TRAKT_REDIRECT_URI");
+    return getenv('TRAKT_REDIRECT_URI');
 }
 
 /**
