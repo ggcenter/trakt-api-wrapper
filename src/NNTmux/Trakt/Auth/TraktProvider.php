@@ -41,6 +41,10 @@ class TraktProvider extends AbstractProvider
         return 'https://trakt.tv/oauth/authorize';
     }
 
+    /**
+     * @param array $options
+     * @return string
+     */
     public function getAuthorizationUrl($options = [])
     {
         $this->state = $options['state'] ?? md5(uniqid(mt_rand(), true));
@@ -51,9 +55,12 @@ class TraktProvider extends AbstractProvider
             'state' => $this->state
         ];
 
-        return $this->urlAuthorize() . '?' . $this->httpBuildQuery($params, '', '&');
+        return $this->urlAuthorize() . '?' . $this->getAuthorizationUrl($params);
     }
 
+    /**
+     * @return string
+     */
     public function getClientId()
     {
         return $this->clientId;
@@ -69,10 +76,17 @@ class TraktProvider extends AbstractProvider
         return 'https://trakt.tv/oauth/token';
     }
 
+    /**
+     * @param \League\OAuth2\Client\Token\AccessToken $token
+     */
     public function urlUserDetails(AccessToken $token)
     {
     }
 
+    /**
+     * @param $response
+     * @param \League\OAuth2\Client\Token\AccessToken $token
+     */
     public function userDetails($response, AccessToken $token)
     {
     }
