@@ -15,7 +15,7 @@ use NNTmux\Trakt\Request\Recommendations\Shows as ShowsRequest;
 
 class Recommendations extends Endpoint {
     /**
-     * @var 
+     * @var \NNTmux\Trakt\Api\Recommendations\Dismiss
      */
     public $dismiss;
 
