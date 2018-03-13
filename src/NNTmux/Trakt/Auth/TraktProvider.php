@@ -36,7 +36,7 @@ class TraktProvider extends AbstractProvider
      *
      * @return string
      */
-    public function urlAuthorize()
+    public function urlAuthorize(): string
     {
         return 'https://trakt.tv/oauth/authorize';
     }
@@ -45,17 +45,19 @@ class TraktProvider extends AbstractProvider
      * @param array $options
      * @return string
      */
-    public function getAuthorizationUrl($options = [])
+    public function getAuthorizationUrl($options = []): string
     {
-        $this->state = $options['state'] ?? md5(uniqid(mt_rand(), true));
-        $params = [
+        $defaults = [
             'response_type' => $options['response_type'] ?? 'code',
             'client_id' => $this->clientId,
             'redirect_uri' => $this->redirectUri,
             'state' => $this->state
         ];
 
-        return $this->urlAuthorize() . '?' . $this->getAuthorizationUrl($params);
+        $base   = $this->getBaseAuthorizationUrl();
+        $params = $this->getAuthorizationParameters($defaults);
+        $query  = $this->getAuthorizationQuery($params);
+        return $this->appendQuery($base, $query);
     }
 
     /**
@@ -99,9 +101,9 @@ class TraktProvider extends AbstractProvider
 	 *
 	 * @return string
 	 */
-	public function getBaseAuthorizationUrl()
+	public function getBaseAuthorizationUrl(): string
 	{
-		// TODO: Implement getBaseAuthorizationUrl() method.
+        return 'https://trakt.tv/oauth/authorize';
 	}
 
 	/**
