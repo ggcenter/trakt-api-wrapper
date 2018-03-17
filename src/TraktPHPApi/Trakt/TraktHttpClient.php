@@ -18,6 +18,6 @@ class TraktHttpClient
     public static function make(): Client
     {
 
-        return new Client(['base_url' => [self::API_URL, ['version' => self::API_VERSION]]]);
+        return new Client(['base_uri' => [self::API_URL, ['version' => self::API_VERSION]]]);
     }
 }
