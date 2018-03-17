@@ -169,9 +169,7 @@ abstract class AbstractRequest
 
         $this->setClientId($clientId);
 
-        $request = $this->createRequest($client);
-
-        $response = $this->send($client, $request);
+        $response = $this->createRequest($client);
 	
 	    if ($response !== null && $this->notSuccessful($response)) {
 	        throw ExceptionStatusCodeFactory::create($response->getStatusCode());
@@ -289,24 +287,6 @@ abstract class AbstractRequest
     private function needsPostBody(): bool
     {
         return \in_array($this->getRequestType(), [RequestType::PUT, RequestType::POST], false);
-    }
-	
-	/**
-	 * @param \GuzzleHttp\ClientInterface $client
-	 * @param                             $request
-	 *
-	 * @return null|\Psr\Http\Message\ResponseInterface
-	 * @throws \GuzzleHttp\Exception\GuzzleException
-	 */
-    private function send(ClientInterface $client, $request): ?ResponseInterface
-    {
-        try {
-            $response = $client->send($request);
-            return $response;
-        } catch (ServerException $exception) {
-            $response = $exception->getResponse();
-            return $response;
-        }
     }
 	
 	/**
