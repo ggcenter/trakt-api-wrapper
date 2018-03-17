@@ -1,11 +1,11 @@
 <?php
 use Illuminate\Support\Carbon;
-use NNTmux\Trakt\Request\Calendars\My\Shows;
-use NNTmux\Trakt\Request\Movies\Comments;
-use NNTmux\Trakt\Request\Parameters\Days;
-use NNTmux\Trakt\Request\Parameters\MediaId;
-use NNTmux\Trakt\Request\Parameters\StartDate;
-use NNTmux\Trakt\Request\UriBuilder;
+use TraktPHPApi\Trakt\Request\Calendars\My\Shows;
+use TraktPHPApi\Trakt\Request\Movies\Comments;
+use TraktPHPApi\Trakt\Request\Parameters\Days;
+use TraktPHPApi\Trakt\Request\Parameters\MediaId;
+use TraktPHPApi\Trakt\Request\Parameters\StartDate;
+use TraktPHPApi\Trakt\Request\UriBuilder;
 
 /**
  * Created by PhpStorm.

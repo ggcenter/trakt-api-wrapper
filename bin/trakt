@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 use Symfony\Component\Console\Application;
-use NNTmux\Trakt\Console\TraktGenerateCommand;
+use TraktPHPApi\Trakt\Console\TraktGenerateCommand;
 
 require __DIR__ . '/../vendor/autoload.php';
 

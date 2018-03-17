@@ -10,11 +10,11 @@ use Dotenv\Dotenv;
 use GuzzleHttp\ClientInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use NNTmux\Trakt\Auth\Auth;
-use NNTmux\Trakt\Media\Episode;
-use NNTmux\Trakt\Media\Movie;
-use NNTmux\Trakt\Auth\TraktProvider;
-use NNTmux\Trakt\Auth\Token;
+use TraktPHPApi\Trakt\Auth\Auth;
+use TraktPHPApi\Trakt\Media\Episode;
+use TraktPHPApi\Trakt\Media\Movie;
+use TraktPHPApi\Trakt\Auth\TraktProvider;
+use TraktPHPApi\Trakt\Auth\Token;
 
 require __DIR__ .'/../vendor/autoload.php';
 

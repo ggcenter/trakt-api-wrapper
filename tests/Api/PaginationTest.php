@@ -4,13 +4,13 @@
 use Psr\Http\Message\ResponseInterface;
 use Illuminate\Support\Collection;
 use League\OAuth2\Client\Token\AccessToken;
-use NNTmux\Trakt\Api\Movies;
-use NNTmux\Trakt\Api\Users;
-use NNTmux\Trakt\Contracts\ResponseHandler;
-use NNTmux\Trakt\Request\Movies\Collected;
-use NNTmux\Trakt\Request\Users\History;
-use NNTmux\Trakt\Response\Handlers\AbstractResponseHandler;
-use NNTmux\Trakt\TraktHttpClient;
+use TraktPHPApi\Trakt\Api\Movies;
+use TraktPHPApi\Trakt\Api\Users;
+use TraktPHPApi\Trakt\Contracts\ResponseHandler;
+use TraktPHPApi\Trakt\Request\Movies\Collected;
+use TraktPHPApi\Trakt\Request\Users\History;
+use TraktPHPApi\Trakt\Response\Handlers\AbstractResponseHandler;
+use TraktPHPApi\Trakt\TraktHttpClient;
 
 class PaginationTest extends PHPUnit\Framework\TestCase
 {

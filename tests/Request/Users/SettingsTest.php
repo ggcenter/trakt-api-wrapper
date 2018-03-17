@@ -1,7 +1,7 @@
 <?php
-use NNTmux\Trakt\Request\RequestType;
-use NNTmux\Trakt\Request\Users\Settings;
-use NNTmux\Trakt\Trakt;
+use TraktPHPApi\Trakt\Request\RequestType;
+use TraktPHPApi\Trakt\Request\Users\Settings;
+use TraktPHPApi\Trakt\Trakt;
 
 /**
  * Created by PhpStorm.

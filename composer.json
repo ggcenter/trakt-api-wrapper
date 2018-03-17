@@ -1,11 +1,15 @@
 {
-  "name": "nntmux/trakt",
+  "name": "trakt-php-api/trakt",
   "license": "GPL-3.0-only",
-  "description": "Trakt API wrapper",
+  "description": "Trakt API Wrapper",
   "authors": [
     {
       "name": "megawubs",
       "email": "bwubs@me.com"
+    },
+    {
+      "name": "pvguerra",
+      "email": "paulovictorguerra@gmail.com"
     }
   ],
   "require": {
@@ -27,7 +31,7 @@
   },
   "autoload": {
     "psr-0": {
-      "NNTmux": "src/"
+      "TraktPHPApi": "src/"
     },
     "classmap": [
       "tests"
@@ -42,10 +46,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "NNTmux\\Trakt\\Providers\\Laravel\\TraktApiServiceProvider"
+        "TraktPHPApi\\Trakt\\Providers\\Laravel\\TraktApiServiceProvider"
       ],
       "aliases": {
-        "TraktApi": "NNTmux\\Trakt\\Facades\\TraktApi"
+        "TraktApi": "TraktPHPApi\\Trakt\\Facades\\TraktApi"
       }
     }
   }

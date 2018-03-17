@@ -1,10 +1,10 @@
 <?php
 
-use NNTmux\Trakt\Api;
-use NNTmux\Trakt\Auth\Auth;
-use NNTmux\Trakt\Auth\TraktProvider;
-use NNTmux\Trakt\Media\Movie;
-use NNTmux\Trakt\Trakt;
+use TraktPHPApi\Trakt\Api;
+use TraktPHPApi\Trakt\Auth\Auth;
+use TraktPHPApi\Trakt\Auth\TraktProvider;
+use TraktPHPApi\Trakt\Media\Movie;
+use TraktPHPApi\Trakt\Trakt;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;

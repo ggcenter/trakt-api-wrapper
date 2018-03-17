@@ -3,14 +3,14 @@
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use NNTmux\Trakt\Media\Movie;
-use NNTmux\Trakt\Request\CheckIn\Delete;
-use NNTmux\Trakt\Request\CheckIn\Create;
-use NNTmux\Trakt\Request\Parameters\Query;
-use NNTmux\Trakt\Request\Parameters\Type;
-use NNTmux\Trakt\Request\Parameters\Year;
-use NNTmux\Trakt\Request\Search\ByText;
-use NNTmux\Trakt\Response\CheckIn;
+use TraktPHPApi\Trakt\Media\Movie;
+use TraktPHPApi\Trakt\Request\CheckIn\Delete;
+use TraktPHPApi\Trakt\Request\CheckIn\Create;
+use TraktPHPApi\Trakt\Request\Parameters\Query;
+use TraktPHPApi\Trakt\Request\Parameters\Type;
+use TraktPHPApi\Trakt\Request\Parameters\Year;
+use TraktPHPApi\Trakt\Request\Search\ByText;
+use TraktPHPApi\Trakt\Response\CheckIn;
 
 /**
  * Created by PhpStorm.

@@ -3,8 +3,8 @@
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use NNTmux\Trakt\Response\Handlers\Movies\UpdatedHandler;
-use NNTmux\Trakt\Response\Updated;
+use TraktPHPApi\Trakt\Response\Handlers\Movies\UpdatedHandler;
+use TraktPHPApi\Trakt\Response\Updated;
 
 /**
  * Created by PhpStorm.

@@ -5,10 +5,10 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Mockery\Mock;
-use NNTmux\Trakt\Api;
-use NNTmux\Trakt\Auth\Auth;
-use NNTmux\Trakt\Response\CheckIn;
-use NNTmux\Trakt\Trakt;
+use TraktPHPApi\Trakt\Api;
+use TraktPHPApi\Trakt\Auth\Auth;
+use TraktPHPApi\Trakt\Response\CheckIn;
+use TraktPHPApi\Trakt\Trakt;
 
 class ApiTest extends PHPUnit\Framework\TestCase
 {
@@ -55,7 +55,7 @@ class ApiTest extends PHPUnit\Framework\TestCase
 
         $calendars = $trakt->calendars;
 
-        $this->assertInstanceOf("NNTmux\\Trakt\\Api\\Calendars", $calendars);
+        $this->assertInstanceOf("TraktPHPApi\\Trakt\\Api\\Calendars", $calendars);
 
         $movies = $calendars->movies($this->today, 7);
         $this->assertInternalType('object', $movies);
@@ -96,7 +96,7 @@ class ApiTest extends PHPUnit\Framework\TestCase
         $trakt = new Trakt($auth, $client);
 
         $checkIn = $trakt->checkIn;
-        $this->assertInstanceOf("NNTmux\\Trakt\\Api\\CheckIn", $checkIn);
+        $this->assertInstanceOf("TraktPHPApi\\Trakt\\Api\\CheckIn", $checkIn);
         $response = $checkIn->create(
             get_token(),
             movie($client),
@@ -111,61 +111,61 @@ class ApiTest extends PHPUnit\Framework\TestCase
             "1.1",
             $this->today->format("Y-m-d")
         );
-        $this->assertInstanceOf("NNTmux\\Trakt\\Response\\CheckIn", $response);
+        $this->assertInstanceOf("TraktPHPApi\\Trakt\\Response\\CheckIn", $response);
     }
 
     public function testComments()
     {
-        $this->assertInstanceOf("NNTmux\\Trakt\\Api\\Comments", $this->trakt->comments);
+        $this->assertInstanceOf("TraktPHPApi\\Trakt\\Api\\Comments", $this->trakt->comments);
     }
 
     public function testEpisodes()
     {
-        $this->assertInstanceOf("NNTmux\\Trakt\\Api\\Episodes", $this->trakt->episodes);
+        $this->assertInstanceOf("TraktPHPApi\\Trakt\\Api\\Episodes", $this->trakt->episodes);
     }
 
     public function testGenres()
     {
-        $this->assertInstanceOf("NNTmux\\Trakt\\Api\\Genres", $this->trakt->genres);
+        $this->assertInstanceOf("TraktPHPApi\\Trakt\\Api\\Genres", $this->trakt->genres);
     }
 
     public function testMovies()
     {
-        $this->assertInstanceOf("NNTmux\\Trakt\\Api\\Movies", $this->trakt->movies);
+        $this->assertInstanceOf("TraktPHPApi\\Trakt\\Api\\Movies", $this->trakt->movies);
     }
 
     public function testPeople()
     {
-        $this->assertInstanceOf("NNTmux\\Trakt\\Api\\People", $this->trakt->people);
+        $this->assertInstanceOf("TraktPHPApi\\Trakt\\Api\\People", $this->trakt->people);
     }
 
     public function testRecommendations()
     {
-        $this->assertInstanceOf("NNTmux\\Trakt\\Api\\Recommendations", $this->trakt->recommendations);
+        $this->assertInstanceOf("TraktPHPApi\\Trakt\\Api\\Recommendations", $this->trakt->recommendations);
     }
 
     public function testScrobble()
     {
-        $this->assertInstanceOf("NNTmux\\Trakt\\Api\\Scrobble", $this->trakt->scrobble);
+        $this->assertInstanceOf("TraktPHPApi\\Trakt\\Api\\Scrobble", $this->trakt->scrobble);
     }
 
     public function testSearch()
     {
-        $this->assertInstanceOf("NNTmux\\Trakt\\Api\\Search", $this->trakt->search);
+        $this->assertInstanceOf("TraktPHPApi\\Trakt\\Api\\Search", $this->trakt->search);
     }
 
     public function testSeasons()
     {
-        $this->assertInstanceOf("NNTmux\\Trakt\\Api\\Seasons", $this->trakt->seasons);
+        $this->assertInstanceOf("TraktPHPApi\\Trakt\\Api\\Seasons", $this->trakt->seasons);
     }
 
     public function testShows()
     {
-        $this->assertInstanceOf("NNTmux\\Trakt\\Api\\Shows", $this->trakt->shows);
+        $this->assertInstanceOf("TraktPHPApi\\Trakt\\Api\\Shows", $this->trakt->shows);
     }
 
     public function testUsers()
     {
-        $this->assertInstanceOf("NNTmux\\Trakt\\Api\\Users", $this->trakt->users);
+        $this->assertInstanceOf("TraktPHPApi\\Trakt\\Api\\Users", $this->trakt->users);
     }
 }

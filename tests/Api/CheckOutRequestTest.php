@@ -4,8 +4,8 @@
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use NNTmux\Trakt\Auth\Auth;
-use NNTmux\Trakt\Trakt;
+use TraktPHPApi\Trakt\Auth\Auth;
+use TraktPHPApi\Trakt\Trakt;
 
 class CheckOutRequestTest extends PHPUnit\Framework\TestCase
 {

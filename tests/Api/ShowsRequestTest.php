@@ -2,9 +2,9 @@
 
 
 use Illuminate\Support\Carbon;
-use NNTmux\Trakt\Api;
-use NNTmux\Trakt\Auth\Auth;
-use NNTmux\Trakt\Trakt;
+use TraktPHPApi\Trakt\Api;
+use TraktPHPApi\Trakt\Auth\Auth;
+use TraktPHPApi\Trakt\Trakt;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;

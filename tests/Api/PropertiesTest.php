@@ -1,11 +1,11 @@
 <?php
 
 
-use NNTmux\Trakt\Api\Users\Follow;
-use NNTmux\Trakt\Api\Users\Followers;
-use NNTmux\Trakt\Auth\Auth;
-use NNTmux\Trakt\Auth\TraktProvider;
-use NNTmux\Trakt\Trakt;
+use TraktPHPApi\Trakt\Api\Users\Follow;
+use TraktPHPApi\Trakt\Api\Users\Followers;
+use TraktPHPApi\Trakt\Auth\Auth;
+use TraktPHPApi\Trakt\Auth\TraktProvider;
+use TraktPHPApi\Trakt\Trakt;
 
 class PropertiesTest extends PHPUnit\Framework\TestCase
 {

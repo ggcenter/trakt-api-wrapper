@@ -1,8 +1,8 @@
 <?php
 use Illuminate\Support\Carbon;
-use NNTmux\Trakt\Request\Calendars\My\NewShows;
-use NNTmux\Trakt\Request\Parameters\Days;
-use NNTmux\Trakt\Request\Parameters\StartDate;
+use TraktPHPApi\Trakt\Request\Calendars\My\NewShows;
+use TraktPHPApi\Trakt\Request\Parameters\Days;
+use TraktPHPApi\Trakt\Request\Parameters\StartDate;
 
 /**
  * Created by PhpStorm.

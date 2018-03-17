@@ -2,10 +2,10 @@
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use NNTmux\Trakt\Media\Movie;
-use NNTmux\Trakt\Request\CheckIn\Create;
-use NNTmux\Trakt\Request\Parameters\Query;
-use NNTmux\Trakt\Request\RequestType;
+use TraktPHPApi\Trakt\Media\Movie;
+use TraktPHPApi\Trakt\Request\CheckIn\Create;
+use TraktPHPApi\Trakt\Request\Parameters\Query;
+use TraktPHPApi\Trakt\Request\RequestType;
 
 /**
  * Created by PhpStorm.

@@ -1,9 +1,9 @@
 <?php
 use Illuminate\Support\Carbon;
-use NNTmux\Trakt\Request\Calendars\My\Movies;
-use NNTmux\Trakt\Request\Parameters\Type;
-use NNTmux\Trakt\Request\Users\History;
-use NNTmux\Trakt\TraktHttpClient;
+use TraktPHPApi\Trakt\Request\Calendars\My\Movies;
+use TraktPHPApi\Trakt\Request\Parameters\Type;
+use TraktPHPApi\Trakt\Request\Users\History;
+use TraktPHPApi\Trakt\TraktHttpClient;
 
 /**
  * Class RequestTest
@@ -12,10 +12,10 @@ class RequestTest extends PHPUnit\Framework\TestCase
 {
 	/**
 	 * @throws \GuzzleHttp\Exception\GuzzleException
-	 * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-	 * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-	 * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-	 * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+	 * @throws \TraktPHPApi\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+	 * @throws \TraktPHPApi\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+	 * @throws \TraktPHPApi\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+	 * @throws \TraktPHPApi\Trakt\Request\Exception\HttpCodeException\StatusCodeException
 	 * @throws \PHPUnit\Framework\ExpectationFailedException
 	 * @throws \PHPUnit\Framework\SkippedTestError
 	 * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
@@ -38,10 +38,10 @@ class RequestTest extends PHPUnit\Framework\TestCase
 	
 	/**
 	 * @throws \GuzzleHttp\Exception\GuzzleException
-	 * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-	 * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-	 * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-	 * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
+	 * @throws \TraktPHPApi\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
+	 * @throws \TraktPHPApi\Trakt\Request\Exception\HttpCodeException\ServerErrorException
+	 * @throws \TraktPHPApi\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
+	 * @throws \TraktPHPApi\Trakt\Request\Exception\HttpCodeException\StatusCodeException
 	 * @throws \PHPUnit\Framework\ExpectationFailedException
 	 * @throws \SebastianBergmann\RecursionContext\InvalidArgumentException
 	 */

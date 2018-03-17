@@ -1,7 +1,7 @@
 <?php
-use NNTmux\Trakt\Request\Comments\Replies;
-use NNTmux\Trakt\Request\Parameters\CommentId;
-use NNTmux\Trakt\Request\RequestType;
+use TraktPHPApi\Trakt\Request\Comments\Replies;
+use TraktPHPApi\Trakt\Request\Parameters\CommentId;
+use TraktPHPApi\Trakt\Request\RequestType;
 
 /**
  * Created by PhpStorm.

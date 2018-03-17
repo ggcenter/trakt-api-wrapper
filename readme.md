@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/NNTmux/trakt-api-wrapper.svg?branch=master)](https://travis-ci.org/NNTmux/trakt-api-wrapper)
+[![Build Status](https://travis-ci.org/TraktPHPApi/trakt-api-wrapper.svg?branch=master)](https://travis-ci.org/TraktPHPApi/trakt-api-wrapper)
 
 Notice: This package is a fork of now abandoned megawubs/trakt-api-wrapper
 =========
@@ -10,9 +10,9 @@ This is the Trakt API wrapper for their new API (version 2). It's in active deve
 
 ## Installation
 
-In your composer.json file add:`"nntmux/trakt": "~3.0"` and run `composer install`
+In your composer.json file add:`"TraktPHPApi/trakt": "~3.0"` and run `composer install`
 
-Or you can issue: `composer require nntmux/trakt`
+Or you can issue: `composer require TraktPHPApi/trakt`
 
 ## The goal
 
@@ -21,14 +21,14 @@ The goal of this wrapper is to make communicating with the Trakt api easier. It 
 ## Laravel usage
 
 To use the wrapper inside Laravel, you only have to add 
-`NNTmux\Trakt\Providers\Laravel\TraktApiServiceProvider::class` to the `providers` array in your `config/app.php` file.
- When you've done this, use the `\NNTmux\Trakt\Trakt` class as a type hint to inject it into routes or methods. See 
+`TraktPHPApi\Trakt\Providers\Laravel\TraktApiServiceProvider::class` to the `providers` array in your `config/app.php` file.
+ When you've done this, use the `\TraktPHPApi\Trakt\Trakt` class as a type hint to inject it into routes or methods. See 
  here an example:
  
  ```php
   Route::get(
      '/',
-     function (\NNTmux\Trakt\Trakt $trakt) {
+     function (\TraktPHPApi\Trakt\Trakt $trakt) {
          dump($trakt->movies->popular());
      }
  );
@@ -40,8 +40,8 @@ If you don't use Laravel, you have to do a bit more to get it working.
 
 ## Instantiating the Trakt API Wrapper
 
-The API Wrapper needs one dependency. The `NNTmux\Trakt\Auth` class, that in turn depends on 
-`NNTmux\Trakt\Provider\TraktProvider` The `TraktProvider` holds your client id, secret and your redirect url. To make an 
+The API Wrapper needs one dependency. The `TraktPHPApi\Trakt\Auth` class, that in turn depends on 
+`TraktPHPApi\Trakt\Provider\TraktProvider` The `TraktProvider` holds your client id, secret and your redirect url. To make an 
 Auth object:
  
  ```PHP

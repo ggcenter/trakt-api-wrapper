@@ -4,9 +4,9 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Illuminate\Support\Collection;
-use NNTmux\Trakt\Auth\Auth;
-use NNTmux\Trakt\Response\Comment;
-use NNTmux\Trakt\Trakt;
+use TraktPHPApi\Trakt\Auth\Auth;
+use TraktPHPApi\Trakt\Response\Comment;
+use TraktPHPApi\Trakt\Trakt;
 
 class CommentsRequestTest extends PHPUnit\Framework\TestCase
 {

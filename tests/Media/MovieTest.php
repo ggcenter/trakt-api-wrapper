@@ -3,11 +3,11 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Illuminate\Support\Collection;
-use NNTmux\Trakt\Auth\Auth;
-use NNTmux\Trakt\Media\Movie;
-use NNTmux\Trakt\Request\Parameters\Query;
-use NNTmux\Trakt\Request\Parameters\Type;
-use NNTmux\Trakt\Trakt;
+use TraktPHPApi\Trakt\Auth\Auth;
+use TraktPHPApi\Trakt\Media\Movie;
+use TraktPHPApi\Trakt\Request\Parameters\Query;
+use TraktPHPApi\Trakt\Request\Parameters\Type;
+use TraktPHPApi\Trakt\Trakt;
 
 /**
  * Created by PhpStorm.
@@ -58,7 +58,7 @@ class MovieTest extends PHPUnit\Framework\TestCase
         $client = Mockery::mock(ClientInterface::class);
         $movie = new Movie($mockResponse->json(['object' => true]), $clientId, $token, $client);
 
-        $this->assertInstanceOf("NNTmux\\Trakt\\Media\\Movie", $movie);
+        $this->assertInstanceOf("TraktPHPApi\\Trakt\\Media\\Movie", $movie);
         $this->assertEquals(26.019499, $movie->score);
         $this->assertEquals("Batman Begins", $movie->title);
     }
@@ -112,7 +112,7 @@ class MovieTest extends PHPUnit\Framework\TestCase
 
         $checkin = $movie->checkIn([], "Never seen this one before!");
 
-        $this->assertInstanceOf("NNTmux\\Trakt\\Response\\CheckIn", $checkin);
+        $this->assertInstanceOf("TraktPHPApi\\Trakt\\Response\\CheckIn", $checkin);
 
         $this->assertTrue($checkin->isSharedOnFacebook());
         $this->assertEquals("Guardians of the Galaxy", $checkin->media->title);
