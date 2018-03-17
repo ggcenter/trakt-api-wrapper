@@ -1,8 +1,0 @@
-trakt-api:
-  image: nntmux/trakt-api
-  volumes:
-    - '.:/source'
-  environment:
-    - PHP_IDE_CONFIG=serverName=trakt.dev
-    - XDEBUG_CONFIG=idekey=phpstorm remote_host=127.0.0.1
-
