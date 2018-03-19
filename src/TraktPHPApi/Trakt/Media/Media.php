@@ -97,7 +97,8 @@ abstract class Media implements Arrayable
         $venueName = null,
         $appVersion = null,
         $appDate = null
-    ) {
+    )
+    {
         $request = new Create($this->token, $this, $message, $sharing, $venueId, $venueName, $appVersion, $appDate);
         return $this->make($request);
     }
@@ -177,7 +178,10 @@ abstract class Media implements Arrayable
                 $this->type = Type::show();
                 return $json->show;
             }
-
+            if ($this instanceof Episode) {
+                $this->type = Type::episode();
+                return $json->episode;
+            }
             if ($this instanceof Person) {
                 $this->type = Type::person();
                 return $json->person;

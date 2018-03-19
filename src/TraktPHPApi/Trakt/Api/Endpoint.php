@@ -60,7 +60,7 @@ abstract class Endpoint
     /**
      * @return $this
      */
-    public function withImages()
+    public function withImages(): self
     {
         if (!$this->extended->contains('images')) {
             return $this->extend('images');
@@ -74,6 +74,22 @@ abstract class Endpoint
     public function withFull(): self
     {
         return $this->extend('full');
+    }
+
+    /**
+     * @return $this
+     */
+    public function withEpisodes(): self
+    {
+        return $this->extend('episodes');
+    }
+
+    /**
+     * @return $this
+     */
+    public function withoutSeasons(): self
+    {
+        return $this->extend('noseasons');
     }
 
     /**
