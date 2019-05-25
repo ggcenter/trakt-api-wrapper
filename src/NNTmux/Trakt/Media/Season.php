@@ -12,19 +12,13 @@ namespace NNTmux\Trakt\Media;
 class Season extends Media
 {
 
-    protected $standard = ['number', 'ids'];
+    protected $standard = ["number", "ids"];
 
-    /**
-     * @return mixed
-     */
     public function getTitle()
     {
         return $this->media->number;
     }
 
-    /**
-     * @return mixed
-     */
     public function getIds()
     {
         return $this->media->ids;

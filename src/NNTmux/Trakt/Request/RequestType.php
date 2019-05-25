@@ -5,8 +5,8 @@ namespace NNTmux\Trakt\Request;
 class RequestType
 {
 
-    public const POST = 'POST';
-    public const PUT = 'PUT';
-    public const DELETE = 'DELETE';
-    public const GET = 'GET';
+    const POST = "POST";
+    const PUT = "PUT";
+    const DELETE = "DELETE";
+    const GET = "GET";
 }

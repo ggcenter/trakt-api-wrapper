@@ -24,20 +24,18 @@ class UriBuilder
     {
         $this->request = $request;
     }
-	
-	/**
-	 * Formats the uri for a Request object. Parts of the uri that start with an
-	 * ":" are the parameters of the uri. This method initiates the formatting process
-	 * for such an uri by getting the parameters first, and with the name of a parameter,
-	 * i'ts value can be retrieved. The value is either stored inside a public property of
-	 * the request object. Or it can be retrieved by a getter.
-	 *
-	 * @param AbstractRequest $request
-	 *
-	 * @return string
-	 * @throws \NNTmux\Trakt\Exception\MalformedParameterException
-	 */
-    public static function format(AbstractRequest $request): string
+
+    /**
+     * Formats the uri for a Request object. Parts of the uri that start with an
+     * ":" are the parameters of the uri. This method initiates the formatting process
+     * for such an uri by getting the parameters first, and with the name of a parameter,
+     * i'ts value can be retrieved. The value is either stored inside a public property of
+     * the request object. Or it can be retrieved by a getter.
+     *
+     * @param AbstractRequest $request
+     * @return string
+     */
+    public static function format(AbstractRequest $request)
     {
         $builder = new static($request);
 
@@ -52,28 +50,27 @@ class UriBuilder
      *
      * @return array
      */
-    private function getParametersInUri(): array
+    private function getParametersInUri()
     {
         $url = $this->request->getUri();
 
-        $parts = array_map(function ($part) { return ':' . $part; }, explode('/:', $url));
+        $parts = array_map(function ($part) { return ':' . $part; }, explode("/:", $url));
 
         unset($parts[0]); //remove the base uri
 
         return array_map(function ($part) { return $this->stripTrailingPart($part); }, $parts);
     }
-	
-	/**
-	 * Gets the values for all the parameters that are retrieved by getParametersInUri.
-	 * When all the parameters are retrieved, it returns an associative array of [parameter => value]
-	 * If one parameter fails to be retrieved, it results in a MalformedParameterException.
-	 *
-	 * @param array $parameters
-	 *
-	 * @return array
-	 * @throws \NNTmux\Trakt\Exception\MalformedParameterException
-	 */
-    private function getValuesFromUriParameters(array $parameters): array
+
+    /**
+     * Gets the values for all the parameters that are retrieved by getParametersInUri.
+     * When all the parameters are retrieved, it returns an associative array of [parameter => value]
+     * If one parameter fails to be retrieved, it results in a MalformedParameterException.
+     *
+     * @param array $parameters
+     * @return array
+     * @throws MalformedParameterException
+     */
+    private function getValuesFromUriParameters(array $parameters)
     {
         return array_map(function ($parameter) {
             return $this->getValueFromParameter($parameter);
@@ -120,9 +117,9 @@ class UriBuilder
      * @param $parameter
      * @return string
      */
-    private function getValueGetter($parameter): string
+    private function getValueGetter($parameter)
     {
-        return 'get' . $this->toCamelCase($parameter);
+        return "get" . $this->toCamelCase($parameter);
     }
 
     /**
@@ -142,12 +139,12 @@ class UriBuilder
      * @param $parameter
      * @return string
      */
-    private function stripTrailingPart($parameter): string
+    private function stripTrailingPart($parameter)
     {
-        if (strpos($parameter, '/') === false)
+        if (!strstr($parameter, "/"))
             return $parameter;
 
-        $pos = strpos($parameter, '/');
+        $pos = strpos($parameter, "/");
         return substr($parameter, 0, $pos);
     }
 }

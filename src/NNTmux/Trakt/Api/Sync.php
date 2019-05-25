@@ -36,46 +36,17 @@ class Sync extends Endpoint {
     */
     public $watchlist;
 
-    /**
-     * @param \League\OAuth2\Client\Token\AccessToken $token
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
     public function lastActivities(AccessToken $token)
     {
         return $this->request(new LastActivitiesRequest($token));
     }
 
-    /**
-     * @param \League\OAuth2\Client\Token\AccessToken $token
-     * @param $type
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function playback(AccessToken $token, $type)
+	public function playback(AccessToken $token, $type)
     {
         return $this->request(new PlaybackRequest($token, $type));
     }
 
-    /**
-     * @param \League\OAuth2\Client\Token\AccessToken $token
-     * @param $type
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function watched(AccessToken $token, $type)
+	public function watched(AccessToken $token, $type)
     {
         return $this->request(new WatchedRequest($token, $type));
     }

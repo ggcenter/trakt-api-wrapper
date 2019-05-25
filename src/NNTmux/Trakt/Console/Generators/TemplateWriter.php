@@ -29,7 +29,7 @@ trait TemplateWriter
     protected function deleteUnusedPlaceholders()
     {
 
-        $this->template = preg_replace('/{.*}/', '', $this->template);
+        $this->template = preg_replace("/{.*}/", "", $this->template);
         return $this;
     }
 }

@@ -8,8 +8,11 @@
 
 namespace NNTmux\Trakt\Media;
 
+
+use League\OAuth2\Client\Token\AccessToken;
+
 class Show extends Media
 {
 
-    protected $standard = ['title', 'year', 'ids'];
+    protected $standard = ["title", "year", "ids"];
 }

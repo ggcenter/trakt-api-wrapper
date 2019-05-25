@@ -33,225 +33,82 @@ class Shows extends Endpoint {
     */
     public $progress;
 
-    /**
-     * @param $mediaId
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
     public function aliases($mediaId)
     {
         return $this->request(new AliasesRequest($mediaId));
     }
 
-    /**
-     * @param null $period
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function collected($period = null)
+	public function collected($period = null)
     {
         return $this->request(new CollectedRequest($period));
     }
 
-    /**
-     * @param $mediaId
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function comments($mediaId)
+	public function comments($mediaId)
     {
         return $this->request(new CommentsRequest($mediaId));
     }
 
-    /**
-     * @param $mediaId
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function people($mediaId)
+	public function people($mediaId)
     {
         return $this->request(new PeopleRequest($mediaId));
     }
 
-    /**
-     * @param null $period
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function played($period = null)
+	public function played($period = null)
     {
         return $this->request(new PlayedRequest($period));
     }
 
-    /**
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function popular()
+	public function popular()
     {
         return $this->request(new PopularRequest());
     }
 
-    /**
-     * @param $mediaId
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function ratings($mediaId)
+	public function ratings($mediaId)
     {
         return $this->request(new RatingsRequest($mediaId));
     }
 
-    /**
-     * @param $mediaId
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function related($mediaId)
+	public function related($mediaId)
     {
         return $this->request(new RelatedRequest($mediaId));
     }
 
-    /**
-     * @param $mediaId
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function stats($mediaId)
+	public function stats($mediaId)
     {
         return $this->request(new StatsRequest($mediaId));
     }
 
-    /**
-     * @param $mediaId
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function summary($mediaId)
+	public function summary($mediaId)
     {
         return $this->request(new SummaryRequest($mediaId));
     }
 
-    /**
-     * @param $mediaId
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function get($mediaId)
+	public function get($mediaId)
     {
         return $this->request(new SummaryRequest($mediaId));
     }
 
-    /**
-     * @param $mediaId
-     * @param $language
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function translations($mediaId, $language)
+	public function translations($mediaId, $language)
     {
         return $this->request(new TranslationsRequest($mediaId, $language));
     }
 
-    /**
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function trending()
+	public function trending()
     {
         return $this->request(new TrendingRequest());
     }
 
-    /**
-     * @param \Illuminate\Support\Carbon|null $date
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function updates(Carbon $date = null)
+	public function updates(Carbon $date = null)
     {
         return $this->request(new UpdatesRequest($date));
     }
 
-    /**
-     * @param null $period
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function watched($period = null)
+	public function watched($period = null)
     {
         return $this->request(new WatchedRequest($period));
     }
 
-    /**
-     * @param $mediaId
-     * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function watching($mediaId)
+	public function watching($mediaId)
     {
         return $this->request(new WatchingRequest($mediaId));
     }

@@ -59,7 +59,7 @@ class AbstractResponseHandler
 
     protected function getJson(ResponseInterface $response)
     {
-        return $response->json(["object" => true]);
+        return json_decode($response->getBody());
     }
 
     protected function transformToObjects(ResponseInterface $response, $objectName, ClientInterface $client)

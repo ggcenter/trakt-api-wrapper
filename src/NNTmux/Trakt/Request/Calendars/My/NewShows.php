@@ -25,22 +25,17 @@ class NewShows extends AbstractRequest
         parent::__construct();
         $this->setStartDate($startDate);
         $this->setDays($days);
+//        $this->setResponseHandler(new ShowsResponseHandler());
         $this->setToken($accessToken);
     }
 
-    /**
-     * @return mixed|string
-     */
     public function getRequestType()
     {
         return RequestType::GET;
     }
 
-    /**
-     * @return mixed|string
-     */
     public function getUri()
     {
-        return 'calendars/my/shows/new/:start_date/:days';
+        return "calendars/my/shows/new/:start_date/:days";
     }
 }

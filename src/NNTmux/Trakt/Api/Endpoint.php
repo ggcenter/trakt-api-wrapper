@@ -16,19 +16,10 @@ abstract class Endpoint
      */
     private $extended;
 
-    /**
-     * @var int 
-     */
     private $page = 1;
 
-    /**
-     * @var int 
-     */
     private $limit = 10;
 
-    /**
-     * @var string 
-     */
     private $clientId;
     /**
      * @var ClientInterface
@@ -36,17 +27,14 @@ abstract class Endpoint
     private $client;
 
     /**
-     * Endpoint constructor.
-     *
-     * @param $clientId
-     * @param \GuzzleHttp\ClientInterface $client
-     * @throws \ReflectionException
+     * @param string $clientId
+     * @param ClientInterface $client
      */
     public function __construct($clientId, ClientInterface $client)
     {
         $this->clientId = $clientId;
         $this->client = $client;
-        $this->extended = new Collection(['min']);
+        $this->extended = new Collection(["min"]);
 
         $reflection = new \ReflectionClass($this);
         foreach ($reflection->getProperties() as $property) {
@@ -62,7 +50,7 @@ abstract class Endpoint
      */
     public function withImages()
     {
-        if (!$this->extended->contains('images')) {
+        if (!$this->extended->contains("images")) {
             return $this->extend('images');
         }
         return $this;
@@ -71,9 +59,9 @@ abstract class Endpoint
     /**
      * @return $this
      */
-    public function withFull(): self
+    public function withFull()
     {
-        return $this->extend('full');
+        return $this->extend("full");
     }
 
     /**
@@ -106,7 +94,6 @@ abstract class Endpoint
      * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
      * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
      * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     protected function request(AbstractRequest $request)
     {
@@ -121,7 +108,7 @@ abstract class Endpoint
      * @param $level
      * @return $this
      */
-    private function extend($level): self
+    private function extend($level)
     {
         $this->extended->forget(0);
         $this->extended->push($level);
@@ -131,9 +118,8 @@ abstract class Endpoint
     /**
      * @param $dockBlock
      * @return \ReflectionClass
-     * @throws \ReflectionException
      */
-    private function parseDockBlock($dockBlock): \ReflectionClass
+    private function parseDockBlock($dockBlock)
     {
         $match = [];
         preg_match('/(?<=@var\s).+/', $dockBlock, $match);

@@ -11,8 +11,5 @@ namespace NNTmux\Trakt\Media;
 
 class Person extends Media
 {
-    /**
-     * @var array
-     */
-    protected $standard = ['name', 'ids'];
+    protected $standard = ["name", "ids"];
 }

@@ -16,6 +16,8 @@ use NNTmux\Trakt\Contracts\ResponseHandler;
 use NNTmux\Trakt\Request\Exception\HttpCodeException\ExceptionStatusCodeFactory;
 use NNTmux\Trakt\Response\Handlers\DefaultResponseHandler;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\RequestInterface;
+use GuzzleHttp\Psr7\Request;
 
 abstract class AbstractRequest
 {
@@ -182,7 +184,6 @@ abstract class AbstractRequest
 	
 	/**
 	 * @return string
-	 * @throws \NNTmux\Trakt\Exception\MalformedParameterException
 	 */
     public function getUrl(): string
     {
@@ -227,7 +228,7 @@ abstract class AbstractRequest
 	/**
 	 * @return array
 	 */
-    protected function getPostBody(): array
+    protected function getPostBody()
     {
         return [];
     }
@@ -248,13 +249,12 @@ abstract class AbstractRequest
     /**
      * @return array
      */
-    private function getHeaders(): array
+    private function getHeaders()
     {
         $token = ($this->token === null) ? '' : 'Bearer ' . $this->token;
         return [
-	        'content-type'      => 'application/json',
-	        'Authorization'     => $token,
-	        'trakt-api-version' => 2,
+	        'Content-type'      => 'application/json',
+	        'trakt-api-version' => '2',
 	        'trakt-api-key'     => $this->clientId
         ];
     }
@@ -298,32 +298,29 @@ abstract class AbstractRequest
 	 * @return null|\Psr\Http\Message\ResponseInterface
 	 * @throws \GuzzleHttp\Exception\GuzzleException
 	 */
-    private function send(ClientInterface $client, $request): ?ResponseInterface
+    private function createRequest(ClientInterface $client)
+    {
+        $request = new Request(
+            $this->getRequestType(),
+            $this->getUrl()
+        );
+        return $request;
+    }
+    /**
+     * Sends the given request using the client.
+     * @param ClientInterface $client
+     * @param RequestInterface $request
+     * @return ResponseInterface
+     */
+    private function send(ClientInterface $client, RequestInterface $request)
     {
         try {
-            $response = $client->send($request);
+            $response = $client->send($request, $this->getOptions());
             return $response;
         } catch (ServerException $exception) {
             $response = $exception->getResponse();
             return $response;
         }
-    }
-	
-	/**
-	 * @param \GuzzleHttp\ClientInterface $client
-	 *
-	 * @return \Psr\Http\Message\ResponseInterface
-	 * @throws \GuzzleHttp\Exception\GuzzleException
-	 * @throws \NNTmux\Trakt\Exception\MalformedParameterException
-	 */
-    private function createRequest(ClientInterface $client): ResponseInterface
-    {
-        $request = $client->request(
-            $this->getRequestType(),
-            $this->getUrl(),
-            $this->getOptions()
-        );
-        return $request;
     }
 	
 	/**

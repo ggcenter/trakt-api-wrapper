@@ -31,29 +31,17 @@ class Method
      */
     private $name;
 
-    /**
-     * @var \Illuminate\Support\Collection|string[] 
-     */
-    private $methodParameterNames;
 
     /**
-     * @var \Illuminate\Support\Collection 
-     */
-    private $requestParameters;
-
-    /**
-     * Method constructor.
-     *
-     * @param \ReflectionClass $reflection
-     * @param \League\Flysystem\FilesystemInterface $filesystem
+     * @param ReflectionClass $reflection
+     * @param FilesystemInterface $filesystem
      * @param null $name
-     * @throws \League\Flysystem\FileNotFoundException
      */
     public function __construct(ReflectionClass $reflection, FilesystemInterface $filesystem, $name = null)
     {
 
         $this->reflection = $reflection;
-        $this->template = $filesystem->read('/Console/stubs/method.stub');
+        $this->template = $filesystem->read("/Console/stubs/method.stub");
         $this->name = $name;
 
         $this->classParameters = $this->getClassParameters();
@@ -62,15 +50,13 @@ class Method
         $this->requestParameters = $this->getRequestParameters();
     }
 
-    /**
-     * @return false|string
-     */
     public function generate()
     {
         $this->writeMethodName()
             ->writeMethodParameters()
             ->writeRequestClass()
             ->writeRequestParameters();
+//            ->writeRequestParameterObjects();
 
         return $this->template;
     }
@@ -101,14 +87,14 @@ class Method
             if ($parameterClass = $parameter->getClass()) {
                 $className = $parameterClass->getShortName();
             }
-            $parameterString = ($className !== null) ? $className .' $'. $parameter->getName() : ' $'
+            $parameterString = ($className !== null) ? $className . " $" . $parameter->getName() : " $"
                 . $parameter->getName();
             try {
                 if ($parameter->isArray()) {
-                    $parameterString = 'array'. $parameterString;
+                    $parameterString = "array" . $parameterString;
                 }
                 if ($parameter->isDefaultValueAvailable()) {
-                    $parameterString .= ' = '. json_encode($parameter->getDefaultValue());
+                    $parameterString .= " = " . json_encode($parameter->getDefaultValue());
                 }
 //                if($parameter->isDefaultValueConstant())
             } catch (ReflectionException $exception) {
@@ -122,9 +108,6 @@ class Method
         return $methodParameters;
     }
 
-    /**
-     * @return \Illuminate\Support\Collection
-     */
     private function getRequestParameters()
     {
         $requestClassParameters = new Collection();
@@ -157,8 +140,8 @@ class Method
      */
     private function writeMethodParameters()
     {
-        $parameters = $this->methodParameterNames->implode(', ');
-        return $this->writeInTemplate('method_parameters', $parameters);
+        $parameters = $this->methodParameterNames->implode(", ");
+        return $this->writeInTemplate("method_parameters", $parameters);
     }
 
     /**
@@ -166,7 +149,7 @@ class Method
      */
     private function writeMethodName()
     {
-        return $this->writeInTemplate('method_name', $this->getName());
+        return $this->writeInTemplate("method_name", $this->getName());
     }
 
     /**
@@ -174,7 +157,7 @@ class Method
      */
     private function writeRequestClass()
     {
-        return $this->writeInTemplate('request_class', $this->reflection->getShortName() .'Request');
+        return $this->writeInTemplate("request_class", $this->reflection->getShortName() . "Request");
     }
 
     /**
@@ -182,8 +165,8 @@ class Method
      */
     private function writeRequestParameters()
     {
-        $parameters = $this->requestParameters->implode(', ');
-        return $this->writeInTemplate('request_parameters', $parameters);
+        $parameters = $this->requestParameters->implode(", ");
+        return $this->writeInTemplate("request_parameters", $parameters);
     }
 
     /**
@@ -195,16 +178,13 @@ class Method
     }
 
     /**
-     * @return null|string
+     * @return null
      */
     public function getName()
     {
-        return $this->name ?? lcfirst($this->reflection->getShortName());
+        return ($this->name === null) ? lcfirst($this->reflection->getShortName()) : $this->name;
     }
 
-    /**
-     * @return \ReflectionClass
-     */
     public function getRequestClass()
     {
         return $this->reflection;

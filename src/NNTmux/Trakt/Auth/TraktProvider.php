@@ -19,13 +19,14 @@ class TraktProvider extends AbstractProvider
      */
     public function __construct($clientId, $clientSecret, $redirectUrl, $state = 'state', $type = 'code')
     {
+
         parent::__construct(
             [
-                'clientId' => (string)$clientId,
-                'clientSecret' => $clientSecret,
-                'redirectUri' => $redirectUrl,
-                'state' => $state,
-                'response_type' => $type
+                "clientId" => (string)$clientId,
+                "clientSecret" => $clientSecret,
+                "redirectUri" => $redirectUrl,
+                "state" => $state,
+                "response_type" => $type
             ]
         );
     }
@@ -36,33 +37,24 @@ class TraktProvider extends AbstractProvider
      *
      * @return string
      */
-    public function urlAuthorize(): string
+    public function urlAuthorize()
     {
         return 'https://trakt.tv/oauth/authorize';
     }
 
-    /**
-     * @param array $options
-     * @return string
-     */
-    public function getAuthorizationUrl($options = []): string
+    public function getAuthorizationUrl($options = [])
     {
-        $defaults = [
+        $this->state = $options['state'] ?? md5(uniqid(mt_rand(), true));
+        $params = [
             'response_type' => $options['response_type'] ?? 'code',
             'client_id' => $this->clientId,
             'redirect_uri' => $this->redirectUri,
             'state' => $this->state
         ];
 
-        $base   = $this->getBaseAuthorizationUrl();
-        $params = $this->getAuthorizationParameters($defaults);
-        $query  = $this->getAuthorizationQuery($params);
-        return $this->appendQuery($base, $query);
+        return $this->urlAuthorize() . '?' . $this->httpBuildQuery($params, '', '&');
     }
 
-    /**
-     * @return string
-     */
     public function getClientId()
     {
         return $this->clientId;
@@ -78,22 +70,15 @@ class TraktProvider extends AbstractProvider
         return 'https://trakt.tv/oauth/token';
     }
 
-    /**
-     * @param \League\OAuth2\Client\Token\AccessToken $token
-     */
     public function urlUserDetails(AccessToken $token)
     {
     }
 
-    /**
-     * @param $response
-     * @param \League\OAuth2\Client\Token\AccessToken $token
-     */
     public function userDetails($response, AccessToken $token)
     {
     }
-
-
+	
+	
 	/**
 	 * Returns the base URL for authorizing a client.
 	 *
@@ -101,11 +86,11 @@ class TraktProvider extends AbstractProvider
 	 *
 	 * @return string
 	 */
-	public function getBaseAuthorizationUrl(): string
+	public function getBaseAuthorizationUrl()
 	{
-        return 'https://trakt.tv/oauth/authorize';
+		// TODO: Implement getBaseAuthorizationUrl() method.
 	}
-
+	
 	/**
 	 * Returns the base URL for requesting an access token.
 	 *
@@ -119,7 +104,7 @@ class TraktProvider extends AbstractProvider
 	{
 		// TODO: Implement getBaseAccessTokenUrl() method.
 	}
-
+	
 	/**
 	 * Returns the URL for requesting the resource owner's details.
 	 *
@@ -131,7 +116,7 @@ class TraktProvider extends AbstractProvider
 	{
 		// TODO: Implement getResourceOwnerDetailsUrl() method.
 	}
-
+	
 	/**
 	 * Returns the default scopes used by this provider.
 	 *
@@ -144,7 +129,7 @@ class TraktProvider extends AbstractProvider
 	{
 		// TODO: Implement getDefaultScopes() method.
 	}
-
+	
 	/**
 	 * Checks a provider response for errors.
 	 *
@@ -159,7 +144,7 @@ class TraktProvider extends AbstractProvider
 	{
 		// TODO: Implement checkResponse() method.
 	}
-
+	
 	/**
 	 * Generates a resource owner object from a successful resource owner
 	 * details request.

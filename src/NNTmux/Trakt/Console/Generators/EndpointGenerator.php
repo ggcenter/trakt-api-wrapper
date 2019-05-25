@@ -80,7 +80,6 @@ class EndpointGenerator
      * @param QuestionHelper $questionHelper
      * @param bool $force
      * @param bool $delete
-     * @throws \LogicException
      */
     public function __construct(
         InputInterface $inputInterface,
@@ -96,21 +95,20 @@ class EndpointGenerator
         $this->force = $force;
         $this->delete = $delete;
 
-        $localAdapter = new Local(__DIR__ .'/../..');
+        $localAdapter = new Local(__DIR__ . "/../..");
         $this->filesystem = new Filesystem($localAdapter);
     }
 
     /**
      * @param $endpoint
-     * @return $this|bool
-     * @throws \League\Flysystem\FileNotFoundException
+     * @return bool
      */
     public function generateForEndpoint($endpoint)
     {
-        $this->template = $this->filesystem->read('/Console/stubs/api.stub');
+        $this->template = $this->filesystem->read("/Console/stubs/api.stub");
         $this->endpoint = $this->createEndpoint($endpoint);
 
-        $this->file = '/Api/'. $this->endpoint->implode('/') . '.php';
+        $this->file = "/Api/" . $this->endpoint->implode('/') . '.php';
 
         $this->className = $this->apiNamespace . '\\' . $this->endpoint->implode('\\');
 
@@ -121,13 +119,10 @@ class EndpointGenerator
             return $this->createContent()->writeToFile();
         }
 
-        $this->out->writeln('Not overwriting '. $this->file);
+        $this->out->writeln("Not overwriting " . $this->file);
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getGeneratedTemplate()
     {
         return $this->template;
@@ -138,30 +133,29 @@ class EndpointGenerator
      */
     private function createContent()
     {
-        $this->out->writeln('Generating class for API endpoint: '. $this->endpoint->implode("\\"));
+        $this->out->writeln("Generating class for API endpoint: " . $this->endpoint->implode("\\"));
         $this->setNamespace()
             ->setClassName()
             ->generateMethods()
             ->addUseStatements()
             ->deleteUnusedPlaceholders();
 
-        $this->out->writeln('Deleted unused placeholders in template');
+        $this->out->writeln("Deleted unused placeholders in template");
 
         return $this;
     }
 
     /**
-     * @return $this
-     * @throws \League\Flysystem\FileExistsException
+     * @return bool
      */
-    private function writeToFile(): self
+    private function writeToFile()
     {
         $this->filesystem->write($this->file, $this->template);
         $this->out->writeln(
-            'Written endpoint wrapper to :'. $this->filesystem->get($this->file)->getPath
+            "Written endpoint wrapper to :" . $this->filesystem->get($this->file)->getPath
             ()
         );
-        $this->out->writeln('Class '. $this->className .' is generated');
+        $this->out->writeln("Class " . $this->className . " is generated");
         return $this;
     }
 
@@ -185,17 +179,16 @@ class EndpointGenerator
                 continue;
             }
         };
-        $this->out->writeln('Adding generated methods to template');
-        return $this->writeInTemplate('methods', $methods->implode("\n\n\t"))->addProperties($properties);
+        $this->out->writeln("Adding generated methods to template");
+        return $this->writeInTemplate("methods", $methods->implode("\n\n\t"))->addProperties($properties);
     }
 
     /**
-     * @param \Illuminate\Support\Collection $className
+     * @param $className
      * @param $file
      * @param null $methodName
-     * @return \NNTmux\Trakt\Console\Generators\Method
-     * @throws \NNTmux\Trakt\Exception\ClassCanNotBeImplementedAsEndpointException
-     * @throws \ReflectionException
+     * @return Method
+     * @throws ClassCanNotBeImplementedAsEndpointException
      */
     private function createMethod(Collection $className, $file, $methodName = null)
     {
@@ -212,9 +205,8 @@ class EndpointGenerator
 
     /**
      * @return $this
-     * @throws \ReflectionException
      */
-    private function addUseStatements(): self
+    private function addUseStatements()
     {
         if ($this->endpoint->count() > 1) {
             $this->uses->push(new ReflectionClass(Endpoint::class));
@@ -223,17 +215,18 @@ class EndpointGenerator
             function (ReflectionClass $useStatement) {
                 $parent = $useStatement->getParentClass();
                 if ($parent !== false && $parent->getName() === AbstractRequest::class) {
-                    return $useStatement->getName() .' as '. $useStatement->getShortName() .'Request';
+                    return $useStatement->getName() . " as " . $useStatement->getShortName() . "Request";
+                } else {
+                    return $useStatement->getName();
                 }
-
-                return $useStatement->getName();
             }
         );
         if ($aliases->count() > 0) {
             $uses = $aliases->implode(";\nuse ");
-            $this->out->writeln('Adding use statements to template'
+            $this->out->writeln(
+                "Adding use statements to template"
             );
-            return $this->writeInTemplate('use_statements', 'use '. $uses .';');
+            return $this->writeInTemplate("use_statements", "use " . $uses . ";");
         }
 
         return $this;
@@ -252,19 +245,16 @@ class EndpointGenerator
      */
     private function setClassName()
     {
-        return $this->writeInTemplate('class_name', $this->endpoint->last());
+        return $this->writeInTemplate("class_name", $this->endpoint->last());
     }
 
-    /**
-     * @throws \League\Flysystem\FileNotFoundException
-     */
     public function generateAllEndpoints()
     {
         $this->handleOptions();
-        foreach ($this->filesystem->listContents('/Request') as $content) {
+        foreach ($this->filesystem->listContents("/Request") as $content) {
             if ($content['type'] === 'dir'
-                && $content['basename'] !== 'Exception'
-                && $content['basename'] !== 'Parameters'
+                && $content['basename'] !== "Exception"
+                && $content['basename'] !== "Parameters"
             ) {
                 $this->generateForEndpoint($content['basename']);
             }
@@ -272,12 +262,10 @@ class EndpointGenerator
     }
 
     /**
-     * @return mixed
-     * @throws \Symfony\Component\Console\Exception\RuntimeException
      */
     private function userWantsToOverwrite()
     {
-        $question = new Question('Class '. $this->className .' already exist, do you want to overwrite it?', false);
+        $question = new Question("Class " . $this->className . " already exist, do you want to overwrite it?", false);
         return $this->questionHelper->ask(
             $this->inputInterface,
             $this->out,
@@ -291,13 +279,9 @@ class EndpointGenerator
     private function getRequestFolderContents()
     {
 
-        return new Collection($this->filesystem->listContents('/Request/'. $this->endpoint->implode('/')));
+        return new Collection($this->filesystem->listContents("/Request/" . $this->endpoint->implode("/")));
     }
 
-    /**
-     * @param \Illuminate\Support\Collection $properties
-     * @return $this
-     */
     private function addProperties(Collection $properties)
     {
         $formatted = new Collection();
@@ -316,10 +300,9 @@ class EndpointGenerator
 
     /**
      * @param $content
-     * @param \Illuminate\Support\Collection $methods
-     * @return \Illuminate\Support\Collection
-     * @throws \NNTmux\Trakt\Exception\ClassCanNotBeImplementedAsEndpointException
-     * @throws \ReflectionException
+     * @param $methods
+     * @return Collection|Method[]
+     * @throws ClassCanNotBeImplementedAsEndpointException
      */
     private function handleFile($content, Collection $methods)
     {
@@ -330,19 +313,17 @@ class EndpointGenerator
 
         $this->updateUsages($method);
 
-        if ($method->getName() === 'summary') {
+        if ($method->getName() === "summary") {
             $methods->push($this->createMethod($this->endpoint, $content, 'get')->generate());
-            $this->out->writeln('Generated alias method get for summary');
+            $this->out->writeln("Generated alias method get for summary");
         }
 
         return $methods;
     }
 
     /**
-     * @param \Illuminate\Support\Collection $properties
+     * @param $properties
      * @param $content
-     * @throws \LogicException
-     * @throws \League\Flysystem\FileNotFoundException
      */
     private function handleDirectory(Collection $properties, $content)
     {
@@ -350,7 +331,7 @@ class EndpointGenerator
 
         $this->filesystem->createDir('Api/' . $this->endpoint->first());
         $generator = new EndpointGenerator($this->inputInterface, $this->out, $this->questionHelper);
-        $endpoint = str_replace('Request/', '', $content['path']);
+        $endpoint = str_replace("Request/", "", $content['path']);
         $generator->generateForEndpoint($endpoint);
     }
 
@@ -367,9 +348,6 @@ class EndpointGenerator
         );
     }
 
-    /**
-     * @return $this
-     */
     private function setNamespace()
     {
         $parts = clone $this->endpoint;
@@ -377,7 +355,7 @@ class EndpointGenerator
         $namespace = ($this->endpoint->count() === 1) ? $this->apiNamespace : $this->apiNamespace . '\\' .
             $parts->implode("\\");
 
-        return $this->writeInTemplate('namespace', $namespace);
+        return $this->writeInTemplate("namespace", $namespace);
     }
 
     private function handleOptions()
@@ -402,9 +380,12 @@ class EndpointGenerator
      */
     private function getItemsToDelete()
     {
-        return collect($this->filesystem->listContents('/Api'))->filter(
+        return collect($this->filesystem->listContents("/Api"))->filter(
             function ($content) {
-                return ! ($content['filename'] === 'Endpoint');
+                if ($content['filename'] === "Endpoint") {
+                    return false;
+                };
+                return true;
             }
         );
     }

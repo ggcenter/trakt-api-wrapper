@@ -19,62 +19,24 @@ use NNTmux\Trakt\Api\Endpoint;
 
 class My extends Endpoint {
     
-    /**
-     * @param \League\OAuth2\Client\Token\AccessToken $accessToken
-     * @param \Illuminate\Support\Carbon|null $startDate
-     * @param null $days
-     * @return mixed
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
+
+
     public function movies(AccessToken $accessToken, Carbon $startDate = null, $days = null)
     {
         return $this->request(new MoviesRequest($accessToken, $startDate, $days));
     }
 
-    /**
-     * @param \League\OAuth2\Client\Token\AccessToken $accessToken
-     * @param \Illuminate\Support\Carbon|null $startDate
-     * @param null $days
-     * @return mixed
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function newShows(AccessToken $accessToken, Carbon $startDate = null, $days = null)
+	public function newShows(AccessToken $accessToken, Carbon $startDate = null, $days = null)
     {
         return $this->request(new NewShowsRequest($accessToken, $startDate, $days));
     }
 
-    /**
-     * @param \League\OAuth2\Client\Token\AccessToken $accessToken
-     * @param \Illuminate\Support\Carbon|null $startDate
-     * @param null $days
-     * @return mixed
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function premieres(AccessToken $accessToken, Carbon $startDate = null, $days = null)
+	public function premieres(AccessToken $accessToken, Carbon $startDate = null, $days = null)
     {
         return $this->request(new PremieresRequest($accessToken, $startDate, $days));
     }
 
-    /**
-     * @param \League\OAuth2\Client\Token\AccessToken $accessToken
-     * @param \Illuminate\Support\Carbon|null $startDate
-     * @param null $days
-     * @return mixed
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\RateLimitExceededException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerErrorException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\ServerUnavailableException
-     * @throws \NNTmux\Trakt\Request\Exception\HttpCodeException\StatusCodeException
-     */
-    public function shows(AccessToken $accessToken, Carbon $startDate = null, $days = null)
+	public function shows(AccessToken $accessToken, Carbon $startDate = null, $days = null)
     {
         return $this->request(new ShowsRequest($accessToken, $startDate, $days));
     }
